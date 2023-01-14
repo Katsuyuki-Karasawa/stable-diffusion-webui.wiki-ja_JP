@@ -1,3 +1,4 @@
-[submodule "stable-diffusion-webui.wiki"]
-	path = stable-diffusion-webui.wiki
+[submodule "wiki"]
+	path = wiki
 	url = https://github.com/AUTOMATIC1111/stable-diffusion-webui.wiki.git
+	branch = master
