@@ -1,17 +1,22 @@
-name: Deploy
-
+name: ci 
 on:
-  workflow_dispatch:
   push:
     branches:
-      - "wiki"
+      - master 
+      - main
+permissions:
+  contents: write
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+      - uses: actions/setup-python@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./
+          python-version: 3.x
+      - uses: actions/cache@v2
+        with:
+          key: ${{ github.ref }}
+          path: .cache
+      - run: pip install mkdocs-material 
+      - run: mkdocs gh-deploy --force
