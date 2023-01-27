@@ -1,0 +1,1072 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Install-and-Run-on-AMD-GPUs/">
+      
+      
+        <link rel="next" href="../Installation-on-Apple-Silicon/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.6">
+    
+    
+      
+        <title>Install and Run on NVidia GPUs - SDWebUI Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.558e4712.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.2505c338.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#automatic-installation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="SDWebUI Wiki" class="md-header__button md-logo" aria-label="SDWebUI Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SDWebUI Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Install and Run on NVidia GPUs
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="SDWebUI Wiki" class="md-nav__button md-logo" aria-label="SDWebUI Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    SDWebUI Wiki
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../API/" class="md-nav__link">
+        API
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Change-UI-Defaults/" class="md-nav__link">
+        Change UI Defaults
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Command-Line-Arguments-and-Settings/" class="md-nav__link">
+        Command Line Arguments and Settings
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Contributing/" class="md-nav__link">
+        Pull requests
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Custom-Images-Filename-Name-and-Subdirectory/" class="md-nav__link">
+        Custom Images Filename Name and Subdirectory
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Custom-Scripts/" class="md-nav__link">
+        Installing and Using Custom Scripts
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Dependencies/" class="md-nav__link">
+        Required Dependencies
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Developing-custom-scripts/" class="md-nav__link">
+        Developing custom scripts
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Developing-extensions/" class="md-nav__link">
+        Developing extensions
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Extensions-index/" class="md-nav__link">
+        Extensions index
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Extensions/" class="md-nav__link">
+        General info
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Features/" class="md-nav__link">
+        Features
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Home/" class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Install-and-Run-on-AMD-GPUs/" class="md-nav__link">
+        Install and Run on AMD GPUs
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Install and Run on NVidia GPUs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Install and Run on NVidia GPUs
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#windows" class="md-nav__link">
+    Windows
+  </a>
+  
+    <nav class="md-nav" aria-label="Windows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#powershell" class="md-nav__link">
+    Powershell
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linux" class="md-nav__link">
+    Linux
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#third-party-installation-guidesscripts" class="md-nav__link">
+    Third party installation guides/scripts:
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Installation-on-Apple-Silicon/" class="md-nav__link">
+        Installation on Apple Silicon
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../List-of-Time-Zones/" class="md-nav__link">
+        List of Time Zones
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Localization/" class="md-nav__link">
+        Using localization files
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Negative-prompt/" class="md-nav__link">
+        Negative prompt
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Online-Services/" class="md-nav__link">
+        Online Services
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Optimizations/" class="md-nav__link">
+        Optimizations
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Seed-breaking-changes/" class="md-nav__link">
+        2023-01-23 - Alternating words syntax bugfix
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tests/" class="md-nav__link">
+        Tests
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Textual-Inversion/" class="md-nav__link">
+        What is Textual Inversion?
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Troubleshooting/" class="md-nav__link">
+        Troubleshooting
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Xformers/" class="md-nav__link">
+        Xformers
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../_Footer/" class="md-nav__link">
+         Footer
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#windows" class="md-nav__link">
+    Windows
+  </a>
+  
+    <nav class="md-nav" aria-label="Windows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#powershell" class="md-nav__link">
+    Powershell
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linux" class="md-nav__link">
+    Linux
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#third-party-installation-guidesscripts" class="md-nav__link">
+    Third party installation guides/scripts:
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<p>Before attempting to install make sure all the required <a href="Dependencies">dependencies</a> are met.</p>
+<h1 id="automatic-installation">Automatic Installation</h1>
+<h2 id="windows">Windows</h2>
+<p>Run <code>webui-user.bat</code> from Windows Explorer as normal, <strong><em>non-administrator</em></strong>, user.</p>
+<p>See <a href="Troubleshooting">Troubleshooting</a> section for what to do if things go wrong.</p>
+<h4 id="powershell">Powershell</h4>
+<p>Alternatively, here are 2 launch scripts for using powershell:</p>
+<details><summary>Scripts (Click to show)</summary>
+
+#### webui.ps1
+
+<pre><code>if ($env:PYTHON -eq &quot;&quot; -or $env:PYTHON -eq $null) {
+    $PYTHON = &quot;Python.exe&quot;
+} else {
+    $PYTHON = $env:PYTHON
+}
+
+if ($env:VENV_DIR -eq &quot;&quot; -or $env:VENV_DIR -eq $null) {
+    $VENV_DIR = &quot;$PSScriptRoot\venv&quot;
+} else {
+    $VENV_DIR = $env:VENV_DIR
+}
+
+if ($env:LAUNCH_SCRIPT -eq &quot;&quot; -or $env:LAUNCH_SCRIPT -eq $null) {
+    $LAUNCH_SCRIPT = &quot;$PSScriptRoot\launch.py&quot;
+} else {
+    $LAUNCH_SCRIPT = $env:LAUNCH_SCRIPT
+}
+
+$ERROR_REPORTING = $false
+
+mkdir tmp 2&gt;$null
+
+function Start-Venv {
+    if ($VENV_DIR -eq '-') {
+        Skip-Venv
+    }
+
+    if (Test-Path -Path &quot;$VENV_DIR\Scripts\$python&quot;) {
+        Activate-Venv
+    } else {
+        $PYTHON_FULLNAME = &amp; $PYTHON -c &quot;import sys; print(sys.executable)&quot;
+        Write-Output &quot;Creating venv in directory $VENV_DIR using python $PYTHON_FULLNAME&quot;
+        Invoke-Expression &quot;$PYTHON_FULLNAME -m venv $VENV_DIR &gt; tmp/stdout.txt 2&gt; tmp/stderr.txt&quot;
+        if ($LASTEXITCODE -eq 0) {
+            Activate-Venv
+        } else {
+            Write-Output &quot;Unable to create venv in directory $VENV_DIR&quot;
+        }
+    }
+}
+
+function Activate-Venv {
+    $PYTHON = &quot;$VENV_DIR\Scripts\Python.exe&quot;
+    $ACTIVATE = &quot;$VENV_DIR\Scripts\activate.bat&quot;
+    Invoke-Expression &quot;cmd.exe /c $ACTIVATE&quot;
+    Write-Output &quot;Venv set to $VENV_DIR.&quot;
+    if ($ACCELERATE -eq 'True') {
+        Check-Accelerate
+    } else {
+        Launch-App
+    }
+}
+
+function Skip-Venv {
+    Write-Output &quot;Venv set to $VENV_DIR.&quot;
+    if ($ACCELERATE -eq 'True') {
+        Check-Accelerate
+    } else {
+        Launch-App
+    }
+}
+
+function Check-Accelerate {
+    Write-Output 'Checking for accelerate'
+    $ACCELERATE = &quot;$VENV_DIR\Scripts\accelerate.exe&quot;
+    if (Test-Path -Path $ACCELERATE) {
+        Accelerate-Launch
+    } else {
+        Launch-App
+    }
+}
+
+function Launch-App {
+    Write-Output &quot;Launching with python&quot;
+    Invoke-Expression &quot;$PYTHON $LAUNCH_SCRIPT&quot;
+    #pause
+    exit
+}
+
+function Accelerate-Launch {
+    Write-Output 'Accelerating'
+    Invoke-Expression &quot;$ACCELERATE launch --num_cpu_threads_per_process=6 $LAUNCH_SCRIPT&quot;
+    #pause
+    exit
+}
+
+
+try {
+    if(Get-Command $PYTHON){
+        Start-Venv
+    }
+} Catch {
+    Write-Output &quot;Couldn't launch python.&quot;
+}
+</code></pre>
+
+
+
+
+#### webui-user.ps1
+
+<pre><code>[Environment]::SetEnvironmentVariable(&quot;PYTHON&quot;, &quot;&quot;)
+[Environment]::SetEnvironmentVariable(&quot;GIT&quot;, &quot;&quot;)
+[Environment]::SetEnvironmentVariable(&quot;VENV_DIR&quot;,&quot;&quot;)
+
+# Commandline arguments for webui.py, for example: [Environment]::SetEnvironmentVariable(&quot;COMMANDLINE_ARGS&quot;, &quot;--medvram --opt-split-attention&quot;)
+[Environment]::SetEnvironmentVariable(&quot;COMMANDLINE_ARGS&quot;, &quot;&quot;)
+
+# script to launch to start the app
+# [Environment]::SetEnvironmentVariable(&quot;LAUNCH_SCRIPT&quot;, &quot;launch.py&quot;)
+
+# install command for torch
+# [Environment]::SetEnvironmentVariable(&quot;TORCH_COMMAND&quot;, &quot;pip install torch==1.12.1+cu113 torchvision==0.13.1+cu113 --extra-index-url https://download.pytorch.org/whl/cu113&quot;)
+
+# Requirements file to use for stable-diffusion-webui
+# [Environment]::SetEnvironmentVariable(&quot;REQS_FILE&quot;, &quot;requirements_versions.txt&quot;)
+
+# [Environment]::SetEnvironmentVariable(&quot;GFPGAN_PACKAGE&quot;, &quot;&quot;)
+# [Environment]::SetEnvironmentVariable(&quot;CLIP_PACKAGE&quot;, &quot;&quot;)
+# [Environment]::SetEnvironmentVariable(&quot;OPENCLIP_PACKAGE&quot;, &quot;&quot;)
+
+# URL to a WHL if you wish to override default xformers windows
+# [Environment]::SetEnvironmentVariable(&quot;XFORMERS_WINDOWS_PACKAGE&quot;, &quot;&quot;)
+
+# Uncomment and set to enable an alternate repository URL
+# [Environment]::SetEnvironmentVariable(&quot;STABLE_DIFFUSION_REPO&quot;, &quot;&quot;)
+# [Environment]::SetEnvironmentVariable(&quot;TAMING_TRANSFORMERS_REPO&quot;, &quot;&quot;)
+# [Environment]::SetEnvironmentVariable(&quot;K_DIFFUSION_REPO&quot;, &quot;&quot;)
+# [Environment]::SetEnvironmentVariable(&quot;CODEFORMER_REPO&quot;, &quot;&quot;)
+# [Environment]::SetEnvironmentVariable(&quot;BLIP_REPO&quot;, &quot;&quot;)
+
+# Uncomment and set to enable a specific revision of a repository
+# [Environment]::SetEnvironmentVariable(&quot;STABLE_DIFFUSION_COMMIT_HASH&quot;, &quot;&quot;)
+# [Environment]::SetEnvironmentVariable(&quot;TAMING_TRANSFORMERS_COMMIT_HASH&quot;, &quot;&quot;)
+# [Environment]::SetEnvironmentVariable(&quot;K_DIFFUSION_COMMIT_HASH&quot;, &quot;&quot;)
+# [Environment]::SetEnvironmentVariable(&quot;CODEFORMER_COMMIT_HASH&quot;, &quot;&quot;)
+# [Environment]::SetEnvironmentVariable(&quot;BLIP_COMMIT_HASH&quot;, &quot;&quot;)
+
+
+# Uncomment to enable accelerated launch
+# [Environment]::SetEnvironmentVariable(&quot;ACCELERATE&quot;, &quot;True&quot;)
+
+$SCRIPT = &quot;$PSScriptRoot\webui.ps1&quot;
+Invoke-Expression &quot;$SCRIPT&quot;
+</code></pre>
+
+
+</details>
+
+<h2 id="linux">Linux</h2>
+<p>To install in the default directory <code>/home/$(whoami)/stable-diffusion-webui/</code>, run:</p>
+<pre><code class="language-bash">bash &lt;(wget -qO- https://raw.githubusercontent.com/AUTOMATIC1111/stable-diffusion-webui/master/webui.sh)
+</code></pre>
+<p>In order to customize the installation, clone the repository into the desired location, change the required variables in <code>webui-user.sh</code> and run :</p>
+<pre><code class="language-bash">bash webui.sh
+</code></pre>
+<h2 id="third-party-installation-guidesscripts">Third party installation guides/scripts:</h2>
+<ul>
+<li>NixOS: https://github.com/virchau13/automatic1111-webui-nix</li>
+</ul>
+<h1 id="almost-automatic-installation-and-launch">Almost Automatic Installation and Launch</h1>
+<p>To install the required packages via pip without creating a virtual environment, run:</p>
+<pre><code class="language-bash">python launch.py
+</code></pre>
+<p>Command line arguments may be passed directly, for example:</p>
+<pre><code class="language-bash">python launch.py --opt-split-attention --ckpt ../secret/anime9999.ckpt
+</code></pre>
+<h1 id="manual-installation">Manual Installation</h1>
+<p>Manual installation is very outdated and probably won't work. check colab in the repo's readme for instructions.</p>
+<p>The following process installs everything manually on both Windows or Linux (the latter requiring <code>dir</code> to be replaced by <code>ls</code>):</p>
+<pre><code class="language-bash"># install torch with CUDA support. See https://pytorch.org/get-started/locally/ for more instructions if this fails.
+pip install torch --extra-index-url https://download.pytorch.org/whl/cu113
+
+# check if torch supports GPU; this must output &quot;True&quot;. You need CUDA 11. installed for this. You might be able to use
+# a different version, but this is what I tested.
+python -c &quot;import torch; print(torch.cuda.is_available())&quot;
+
+# clone web ui and go into its directory
+git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git
+cd stable-diffusion-webui
+
+# clone repositories for Stable Diffusion and (optionally) CodeFormer
+mkdir repositories
+git clone https://github.com/CompVis/stable-diffusion.git repositories/stable-diffusion
+git clone https://github.com/CompVis/taming-transformers.git repositories/taming-transformers
+git clone https://github.com/sczhou/CodeFormer.git repositories/CodeFormer
+git clone https://github.com/salesforce/BLIP.git repositories/BLIP
+
+# install requirements of Stable Diffusion
+pip install transformers==4.19.2 diffusers invisible-watermark --prefer-binary
+
+# install k-diffusion
+pip install git+https://github.com/crowsonkb/k-diffusion.git --prefer-binary
+
+# (optional) install GFPGAN (face restoration)
+pip install git+https://github.com/TencentARC/GFPGAN.git --prefer-binary
+
+# (optional) install requirements for CodeFormer (face restoration)
+pip install -r repositories/CodeFormer/requirements.txt --prefer-binary
+
+# install requirements of web ui
+pip install -r requirements.txt  --prefer-binary
+
+# update numpy to latest version
+pip install -U numpy  --prefer-binary
+
+# (outside of command line) put stable diffusion model into web ui directory
+# the command below must output something like: 1 File(s) 4,265,380,512 bytes
+dir model.ckpt
+
+</code></pre>
+<p>The installation is finished, to start the web ui, run:</p>
+<pre><code class="language-bash">python webui.py
+</code></pre>
+<h1 id="windows-11-wsl2-instructions">Windows 11 WSL2 instructions</h1>
+<p>To install under a Linux distro in Windows 11's WSL2:</p>
+<pre><code class="language-bash"># install conda (if not already done)
+wget https://repo.anaconda.com/archive/Anaconda3-2022.05-Linux-x86_64.sh
+chmod +x Anaconda3-2022.05-Linux-x86_64.sh
+./Anaconda3-2022.05-Linux-x86_64.sh
+
+# Clone webui repo
+git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git
+cd stable-diffusion-webui
+
+# Create and activate conda env
+conda env create -f environment-wsl2.yaml
+conda activate automatic
+
+</code></pre>
+<p>At this point, the instructions for the Manual installation may be applied starting at step <code># clone repositories for Stable Diffusion and (optionally) CodeFormer</code>.</p>
+<h1 id="alternative-installation-on-windows-using-conda">Alternative installation on Windows using Conda</h1>
+<ul>
+<li>Prerequisites <em><em>(Only needed if you do not have them)</em></em>. Assumes <a href="https://chocolatey.org/install">Chocolatey</a> is installed. 
+    <code>bash
+    # install git
+    choco install git
+    # install conda
+    choco install anaconda3</code>
+    Optional parameters: <a href="https://community.chocolatey.org/packages/git">git</a>, <a href="https://community.chocolatey.org/packages/anaconda3">conda</a></li>
+<li>Install (warning: some files exceed multiple gigabytes, make sure you have space first)</li>
+<li>Download as .zip and extract or use git to clone.
+        <code>bash
+        git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git</code></li>
+<li>Launch the Anaconda prompt. It should be noted that you can use older Python versions, but you may be forced to manually remove features like cache optimization, which will degrade your performance.
+        <code>bash
+        # Navigate to the git directory
+        cd "GIT\StableDiffusion"
+        # Create environment
+        conda create -n StableDiffusion python=3.10.6
+        # Activate environment
+        conda activate StableDiffusion
+        # Validate environment is selected
+        conda env list
+        # Start local webserver
+        webui-user.bat
+        # Wait for "Running on local URL:  http://127.0.0.1:7860" and open that URI.</code><ol>
+<li><em><em>(Optional)</em></em> Go to <a href="https://huggingface.co/CompVis">CompVis</a> and download latest model, for example <a href="https://huggingface.co/CompVis/stable-diffusion-v1-4">1.4</a> and unpack it to ex:
+    <code>bash
+    GIT\StableDiffusion\models\Stable-diffusion</code>
+    after that restart the server by restarting Anaconda prompt and 
+    <code>bash
+    webui-user.bat</code></li>
+</ol>
+</li>
+<li>Alternative defaults worth trying out:<ol>
+<li>Try <strong>euler a</strong> (Ancestral Euler) with higher <strong>Sampling Steps</strong> ex: 40 or others with 100. </li>
+<li>Set "Settings &gt; User interface &gt; Show image creation progress every N sampling steps" to 1 and pick a deterministic <strong>Seed</strong> value. Can visually see how image defusion happens and record a .gif with <a href="https://github.com/NickeManarin/ScreenToGif">ScreenToGif</a>.</li>
+<li>Use <strong>Restore faces</strong>. Generally, better results, but that quality comes at the cost of speed.</li>
+</ol>
+</li>
+</ul>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.51d95adb.min.js"></script>
+      
+    
+  </body>
+</html>

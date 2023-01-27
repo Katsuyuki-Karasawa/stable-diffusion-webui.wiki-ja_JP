@@ -1,0 +1,980 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Custom-Images-Filename-Name-and-Subdirectory/">
+      
+      
+        <link rel="next" href="../Dependencies/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.6">
+    
+    
+      
+        <title>Installing and Using Custom Scripts - SDWebUI Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.558e4712.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.2505c338.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#installing-and-using-custom-scripts" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="SDWebUI Wiki" class="md-header__button md-logo" aria-label="SDWebUI Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SDWebUI Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Installing and Using Custom Scripts
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="SDWebUI Wiki" class="md-nav__button md-logo" aria-label="SDWebUI Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    SDWebUI Wiki
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../API/" class="md-nav__link">
+        API
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Change-UI-Defaults/" class="md-nav__link">
+        Change UI Defaults
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Command-Line-Arguments-and-Settings/" class="md-nav__link">
+        Command Line Arguments and Settings
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Contributing/" class="md-nav__link">
+        Pull requests
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Custom-Images-Filename-Name-and-Subdirectory/" class="md-nav__link">
+        Custom Images Filename Name and Subdirectory
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Installing and Using Custom Scripts
+      </a>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Dependencies/" class="md-nav__link">
+        Required Dependencies
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Developing-custom-scripts/" class="md-nav__link">
+        Developing custom scripts
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Developing-extensions/" class="md-nav__link">
+        Developing extensions
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Extensions-index/" class="md-nav__link">
+        Extensions index
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Extensions/" class="md-nav__link">
+        General info
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Features/" class="md-nav__link">
+        Features
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Home/" class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Install-and-Run-on-AMD-GPUs/" class="md-nav__link">
+        Install and Run on AMD GPUs
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Install-and-Run-on-NVidia-GPUs/" class="md-nav__link">
+        Install and Run on NVidia GPUs
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Installation-on-Apple-Silicon/" class="md-nav__link">
+        Installation on Apple Silicon
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../List-of-Time-Zones/" class="md-nav__link">
+        List of Time Zones
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Localization/" class="md-nav__link">
+        Using localization files
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Negative-prompt/" class="md-nav__link">
+        Negative prompt
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Online-Services/" class="md-nav__link">
+        Online Services
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Optimizations/" class="md-nav__link">
+        Optimizations
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Seed-breaking-changes/" class="md-nav__link">
+        2023-01-23 - Alternating words syntax bugfix
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tests/" class="md-nav__link">
+        Tests
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Textual-Inversion/" class="md-nav__link">
+        What is Textual Inversion?
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Troubleshooting/" class="md-nav__link">
+        Troubleshooting
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Xformers/" class="md-nav__link">
+        Xformers
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../_Footer/" class="md-nav__link">
+         Footer
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="installing-and-using-custom-scripts">Installing and Using Custom Scripts</h1>
+<p>To install custom scripts, place them into the <code>scripts</code> directory and click the <code>Reload custom script</code> button at the bottom in the settings tab. Custom scripts will appear in the lower-left dropdown menu on the txt2img and img2img tabs after being installed. Below are some notable custom scripts created by Web UI users:</p>
+<h1 id="custom-scripts-from-users">Custom Scripts from Users</h1>
+<h2 id="improved-prompt-matrix">Improved prompt matrix</h2>
+<p>https://github.com/ArrowM/auto1111-improved-prompt-matrix</p>
+<p>This script is <a href="https://github.com/GRMrGecko/stable-diffusion-webui-automatic/blob/advanced_matrix/scripts/advanced_prompt_matrix.py">advanced-prompt-matrix</a> modified to support <code>batch count</code>. Grids are not created.  </p>
+<p><strong>Usage:</strong></p>
+<p>Use <code>&lt;</code> <code>&gt;</code> to create a group of alternate texts. Separate text options with <code>|</code>. Multiple groups and multiple options can be used. For example:</p>
+<p>An input of <code>a &lt;corgi|cat&gt; wearing &lt;goggles|a hat&gt;</code><br />
+Will output 4 prompts: <code>a corgi wearing goggles</code>, <code>a corgi wearing a hat</code>, <code>a cat wearing goggles</code>, <code>a cat wearing a hat</code></p>
+<p>When using a <code>batch count</code> &gt; 1, each prompt variation will be generated for each seed. <code>batch size</code> is ignored.</p>
+<h2 id="txt2img2img">txt2img2img</h2>
+<p>https://github.com/ThereforeGames/txt2img2img</p>
+<p>Greatly improve the editability of any character/subject while retaining their likeness. The main motivation for this script is improving the editability of embeddings created through <a href="https://textual-inversion.github.io/">Textual Inversion</a>.</p>
+<p>(be careful with cloning as it has a bit of venv checked in)</p>
+<details><summary>Example: (Click to expand:)</summary>
+<img src="https://user-images.githubusercontent.com/98228077/200106431-21a22657-db24-4e9c-b7fa-e3a8e9096b89.png" width="624" height="312" />
+</details>
+
+<h2 id="txt2mask">txt2mask</h2>
+<p>https://github.com/ThereforeGames/txt2mask</p>
+<p>Allows you to specify an inpainting mask with text, as opposed to the brush.</p>
+<details><summary>Example: (Click to expand:)</summary>
+<img src="https://user-images.githubusercontent.com/95403634/190878562-d020887c-ccb0-411c-ab37-38e2115552eb.png" width="674" height="312" />
+</details>
+
+<h2 id="mask-drawing-ui">Mask drawing UI</h2>
+<p>https://github.com/dfaker/stable-diffusion-webui-cv2-external-masking-script</p>
+<p>Provides a local popup window powered by CV2 that allows addition of a mask before processing.</p>
+<details><summary>Example: (Click to expand:)</summary>
+<img src="https://user-images.githubusercontent.com/98228077/200109495-3d6741f1-0e25-4ae5-9f84-d93f886f302a.png" width="302" height="312" />
+</details>
+
+<h2 id="img2img-video">Img2img Video</h2>
+<p>https://github.com/memes-forever/Stable-diffusion-webui-video</p>
+<p>Using img2img, generates pictures one after another.</p>
+<h2 id="advanced-seed-blending">Advanced Seed Blending</h2>
+<p>https://github.com/amotile/stable-diffusion-backend/tree/master/src/process/implementations/automatic1111_scripts</p>
+<p>This script allows you to base the initial noise on multiple weighted seeds.</p>
+<p>Ex. <code>seed1:2, seed2:1, seed3:1</code></p>
+<p>The weights are normalized so you can use bigger once like above, or you can do floating point numbers:</p>
+<p>Ex. <code>seed1:0.5, seed2:0.25, seed3:0.25</code></p>
+<h2 id="prompt-blending">Prompt Blending</h2>
+<p>https://github.com/amotile/stable-diffusion-backend/tree/master/src/process/implementations/automatic1111_scripts</p>
+<p>This script allows you to combine multiple weighted prompts together by mathematically combining their textual embeddings before generating the image.</p>
+<p>Ex.</p>
+<p><code>Crystal containing elemental {fire|ice}</code></p>
+<p>It supports nested definitions so you can do this as well:</p>
+<p><code>Crystal containing elemental {{fire:5|ice}|earth}</code></p>
+<h2 id="animator">Animator</h2>
+<p>https://github.com/Animator-Anon/Animator</p>
+<p>A basic img2img script that will dump frames and build a video file. Suitable for creating interesting zoom in warping movies, but not too much else at this time.</p>
+<h2 id="parameter-sequencer">Parameter Sequencer</h2>
+<p>https://github.com/rewbs/sd-parseq</p>
+<p>Generate videos with tight control and flexible interpolation over many Stable Diffusion parameters (such as seed, scale, prompt weights, denoising strength...), as well as input processing parameter (such as zoom, pan, 3D rotation...)</p>
+<h2 id="alternate-noise-schedules">Alternate Noise Schedules</h2>
+<p>https://gist.github.com/dfaker/f88aa62e3a14b559fe4e5f6b345db664</p>
+<p>Uses alternate generators for the sampler's sigma schedule.</p>
+<p>Allows access to Karras, Exponential and Variance Preserving schedules from crowsonkb/k-diffusion along with their parameters.</p>
+<h2 id="vid2vid">Vid2Vid</h2>
+<p>https://github.com/Filarius/stable-diffusion-webui/blob/master/scripts/vid2vid.py</p>
+<p>From real video, img2img the frames and stitch them together. Does not unpack frames to hard drive.</p>
+<h2 id="txt2vectorgraphics">Txt2VectorGraphics</h2>
+<p>https://github.com/GeorgLegato/Txt2Vectorgraphics</p>
+<p>Create custom, scaleable icons from your prompts as SVG or PDF.</p>
+<details><summary>Example: (Click to expand:)</summary>
+
+| prompt  |PNG  |SVG |
+| :--------  | :-----------------: | :---------------------: |
+| Happy Einstein | <img src="https://user-images.githubusercontent.com/7210708/193370360-506eb6b5-4fa7-4b2a-9fec-6430f6d027f5.png" width="40%" /> | <img src="https://user-images.githubusercontent.com/7210708/193370379-2680aa2a-f460-44e7-9c4e-592cf096de71.svg" width=30%/> |
+| Mountainbike Downhill | <img src="https://user-images.githubusercontent.com/7210708/193371353-f0f5ff6f-12f7-423b-a481-f9bd119631dd.png" width=40%/> | <img src="https://user-images.githubusercontent.com/7210708/193371585-68dea4ca-6c1a-4d31-965d-c1b5f145bb6f.svg" width=30%/> |
+coffe mug in shape of a heart | <img src="https://user-images.githubusercontent.com/7210708/193374299-98379ca1-3106-4ceb-bcd3-fa129e30817a.png" width=40%/> | <img src="https://user-images.githubusercontent.com/7210708/193374525-460395af-9588-476e-bcf6-6a8ad426be8e.svg" width=30%/> |
+| Headphones | <img src="https://user-images.githubusercontent.com/7210708/193376238-5c4d4a8f-1f06-4ba4-b780-d2fa2e794eda.png" width=40%/> | <img src="https://user-images.githubusercontent.com/7210708/193376255-80e25271-6313-4bff-a98e-ba3ae48538ca.svg" width=30%/> |
+
+</details>
+
+<h2 id="loopback-and-superimpose">Loopback and Superimpose</h2>
+<p>https://github.com/DiceOwl/StableDiffusionStuff</p>
+<p>https://github.com/DiceOwl/StableDiffusionStuff/blob/main/loopback_superimpose.py</p>
+<p>Mixes output of img2img with original input image at strength alpha. The result is fed into img2img again (at loop&gt;=2), and this procedure repeats. Tends to sharpen the image, improve consistency, reduce creativity and reduce fine detail.</p>
+<h2 id="interpolate">Interpolate</h2>
+<p>https://github.com/DiceOwl/StableDiffusionStuff</p>
+<p>https://github.com/DiceOwl/StableDiffusionStuff/blob/main/interpolate.py</p>
+<p>An img2img script to produce in-between images. Allows two input images for interpolation. More features shown in the <a href="https://github.com/DiceOwl/StableDiffusionStuff">readme</a>.</p>
+<h2 id="run-n-times">Run n times</h2>
+<p>https://gist.github.com/camenduru/9ec5f8141db9902e375967e93250860f</p>
+<p>Run n times with random seed.</p>
+<h2 id="advanced-loopback">Advanced Loopback</h2>
+<p>https://github.com/Extraltodeus/advanced-loopback-for-sd-webui</p>
+<p>Dynamic zoom loopback with parameters variations and prompt switching amongst other features!</p>
+<h2 id="prompt-morph">prompt-morph</h2>
+<p>https://github.com/feffy380/prompt-morph</p>
+<p>Generate morph sequences with Stable Diffusion. Interpolate between two or more prompts and create an image at each step.</p>
+<p>Uses the new AND keyword and can optionally export the sequence as a video.</p>
+<h2 id="prompt-interpolation">prompt interpolation</h2>
+<p>https://github.com/EugeoSynthesisThirtyTwo/prompt-interpolation-script-for-sd-webui</p>
+<p>With this script, you can interpolate between two prompts (using the "AND" keyword), generate as many images as you want.
+You can also generate a gif with the result. Works for both txt2img and img2img.</p>
+<details><summary>Example: (Click to expand:)</summary>
+
+![gif](https://user-images.githubusercontent.com/24735555/195470874-afc3dfdc-7b35-4b23-9c34-5888a4100ac1.gif)
+
+</details>
+
+<h2 id="asymmetric-tiling">Asymmetric Tiling</h2>
+<p>https://github.com/tjm35/asymmetric-tiling-sd-webui/</p>
+<p>Control horizontal/vertical seamless tiling independently of each other.</p>
+<details><summary>Example: (Click to expand:)</summary>
+<img src="https://user-images.githubusercontent.com/19196175/195132862-8c050327-92f3-44a4-9c02-0f11cce0b609.png" width="624" height="312" />
+</details>
+
+<h2 id="force-symmetry">Force Symmetry</h2>
+<p>https://gist.github.com/1ort/2fe6214cf1abe4c07087aac8d91d0d8a</p>
+<p>see https://github.com/AUTOMATIC1111/stable-diffusion-webui/discussions/2441</p>
+<p>applies symmetry to the image every n steps and sends the result further to img2img.</p>
+<details><summary>Example: (Click to expand:)</summary>
+<img src="https://user-images.githubusercontent.com/83316072/196016119-0a03664b-c3e4-49f0-81ac-a9e719b24bd1.png" width="624" height="312" />
+</details>
+
+<h2 id="txt2palette">txt2palette</h2>
+<p>https://github.com/1ort/txt2palette</p>
+<p>Generate palettes by text description. This script takes the generated images and converts them into color palettes.</p>
+<details><summary>Example: (Click to expand:)</summary>
+<img src="https://user-images.githubusercontent.com/83316072/199360686-62f0f5ec-ed3d-4c0f-95b4-af9c67d1e248.png" width="352" height="312" />
+</details>
+
+<h2 id="xyz-plot-script">XYZ Plot Script</h2>
+<p>https://github.com/xrpgame/xyz_plot_script</p>
+<p>Generates an .html file to interactively browse the imageset. Use the scroll wheel or arrow keys to move in the Z dimension.</p>
+<details><summary>Example: (Click to expand:)</summary>
+<img src="https://raw.githubusercontent.com/xrpgame/xyz_plot_script/master/example1.png" width="522" height="312" />
+</details>
+
+<h2 id="expanded-xy-grid">Expanded-XY-grid</h2>
+<p>https://github.com/0xALIVEBEEF/Expanded-XY-grid</p>
+<p>Custom script for AUTOMATIC1111's stable-diffusion-webui that adds more features to the standard xy grid:</p>
+<ul>
+<li>
+<p>Multitool: Allows multiple parameters in one axis, theoretically allows unlimited parameters to be adjusted in one xy grid</p>
+</li>
+<li>
+<p>Customizable prompt matrix</p>
+</li>
+<li>
+<p>Group files in a directory</p>
+</li>
+<li>
+<p>S/R Placeholder - replace a placeholder value (the first value in the list of parameters) with desired values.</p>
+</li>
+<li>
+<p>Add PNGinfo to grid image</p>
+</li>
+</ul>
+<details><summary>Example: (Click to expand:)</summary>
+
+<img src="https://user-images.githubusercontent.com/80003301/202277871-a4a3341b-13f7-42f4-a3e6-ca8f8cd8250a.png" width="574" height="197" />
+
+Example images: Prompt: "darth vader riding a bicycle, modifier"; X: Multitool: "Prompt S/R: bicycle, motorcycle | CFG scale: 7.5, 10 | Prompt S/R Placeholder: modifier, 4k, artstation"; Y: Multitool: "Sampler: Euler, Euler a | Steps: 20, 50" 
+
+</details>
+
+<h2 id="embedding-to-png">Embedding to PNG</h2>
+<p>https://github.com/dfaker/embedding-to-png-script</p>
+<p>Converts existing embeddings to the shareable image versions.</p>
+<details><summary>Example: (Click to expand:)</summary>
+<img src="https://user-images.githubusercontent.com/35278260/196052398-268a3a3e-0fad-46cd-b37d-9808480ceb18.png" width="263" height="256" />
+</details>
+
+<h2 id="alpha-canvas">Alpha Canvas</h2>
+<p>https://github.com/TKoestlerx/sdexperiments</p>
+<p>Outpaint a region. Infinite outpainting concept, used the two existing outpainting scripts from the AUTOMATIC1111 repo as a basis.</p>
+<details><summary>Example: (Click to expand:)</summary>
+<img src="https://user-images.githubusercontent.com/86352149/199517938-3430170b-adca-487c-992b-eb89b3b63681.jpg" width="446" height="312" />
+</details>
+
+<h2 id="random-grid">Random grid</h2>
+<p>https://github.com/lilly1987/AI-WEBUI-scripts-Random</p>
+<p>Randomly enter xy grid values.</p>
+<details><summary>Example: (Click to expand:)</summary>
+<img src="https://user-images.githubusercontent.com/20321215/197346726-f93b7e84-f808-4167-9969-dc42763eeff1.png" width="198" height="312" />
+
+Basic logic is same as x/y plot, only internally, x type is fixed as step, and type y is fixed as cfg.
+Generates x values as many as the number of step counts (10) within the range of step1|2 values (10-30)
+Generates x values as many as the number of cfg counts (10) within the range of cfg1|2 values (6-15)
+Even if you put the 1|2 range cap upside down, it will automatically change it.
+In the case of the cfg value, it is treated as an int type and the decimal value is not read.
+</details>
+
+<h2 id="random">Random</h2>
+<p>https://github.com/lilly1987/AI-WEBUI-scripts-Random</p>
+<p>Repeat a simple number of times without a grid.</p>
+<details><summary>Example: (Click to expand:)</summary>
+<img src="https://user-images.githubusercontent.com/20321215/197346617-0ed1cd09-0ddd-48ad-8161-bc1540d628ad.png" width="258" height="312" />
+</details>
+
+<h2 id="stable-diffusion-aesthetic-scorer">Stable Diffusion Aesthetic Scorer</h2>
+<p>https://github.com/grexzen/SD-Chad</p>
+<p>Rates your images.</p>
+<h2 id="img2tiles">img2tiles</h2>
+<p>https://github.com/arcanite24/img2tiles</p>
+<p>generate tiles from a base image. Based on SD upscale script.</p>
+<details><summary>Example: (Click to expand:)</summary>
+<img src="https://github.com/arcanite24/img2tiles/raw/master/examples/example5.png" width="312" height="312" />
+</details>
+
+<h2 id="img2mosiac">img2mosiac</h2>
+<p>https://github.com/1ort/img2mosaic</p>
+<p>Generate mosaics from images. The script cuts the image into tiles and processes each tile separately. The size of each tile is chosen randomly.</p>
+<details><summary>Example: (Click to expand:)</summary>
+<img src="https://user-images.githubusercontent.com/83316072/200170569-0e7131e4-1da8-4caf-9cd9-5b785c9d21b0.png" width="758" height="312" />
+</details>
+
+<h2 id="test-my-prompt">Test my prompt</h2>
+<p>https://github.com/Extraltodeus/test_my_prompt</p>
+<p>Have you ever used a very long prompt full of words that you are not sure have any actual impact on your image? Did you lose the courage to try to remove them one by one to test if their effects are worthy of your pwescious GPU?</p>
+<p>WELL now you don't need any courage as this script has been MADE FOR YOU!</p>
+<p>It generates as many images as there are words in your prompt (you can select the separator of course).</p>
+<details><summary>Example: (Click to expand:)</summary>
+
+Here the prompt is simply : "**banana, on fire, snow**" and so as you can see it has generated each image without each description in it.
+
+<img src="https://user-images.githubusercontent.com/15731540/200349119-e45d3cfb-39f0-4999-a8f0-4671a6393824.png" width="512" height="512" />
+
+You can also test your negative prompt.
+
+</details>
+
+<h2 id="pixel-art">Pixel Art</h2>
+<p>https://github.com/C10udburst/stable-diffusion-webui-scripts</p>
+<p>Simple script which resizes images by a variable amount, also converts image to use a color palette of a given size.</p>
+<details><summary>Example: (Click to expand:)</summary>
+
+| Disabled | Enabled x8, no resize back, no color palette | Enabled x8, no color palette | Enabled x8, 16 color palette |
+| :---: | :---: | :---: | :---: |
+|![preview](https://user-images.githubusercontent.com/18114966/201491785-e30cfa9d-c850-4853-98b8-11db8de78c8d.png) | ![preview](https://user-images.githubusercontent.com/18114966/201492204-f4303694-e98d-4ea3-8256-538a88ea26b6.png) | ![preview](https://user-images.githubusercontent.com/18114966/201491864-d0c0c9f1-e34f-4cb6-a68e-7043ec5ce74e.png) | ![preview](https://user-images.githubusercontent.com/18114966/201492175-c55fa260-a17d-47c9-a919-9116e1caa8fe.png) |
+
+[model used](https://publicprompts.art/all-in-one-pixel-art-dreambooth-model/)
+
+<pre><code class="language-text">japanese pagoda with blossoming cherry trees, full body game asset, in pixelsprite style
+Steps: 20, Sampler: DDIM, CFG scale: 7, Seed: 4288895889, Size: 512x512, Model hash: 916ea38c, Batch size: 4
+</code></pre>
+
+
+</details>
+
+<h2 id="multiple-hypernetworks">Multiple Hypernetworks</h2>
+<p>https://github.com/antis0007/sd-webui-multiple-hypernetworks</p>
+<p>Adds the ability to apply multiple hypernetworks at once. Overrides the hijack, optimization and CrossAttention forward functions in order to apply multiple hypernetworks sequentially, with different weights.</p>
+<h2 id="hypernetwork-structurehnsvariable-dropout-monkey-patches">Hypernetwork Structure(.hns)/Variable Dropout/ Monkey Patches</h2>
+<p>https://github.com/aria1th/Hypernetwork-MonkeyPatch-Extension</p>
+<p>Adds the ability to apply Hypernetwork Structure, as defining it in .hns file. see <a href="https://github.com/AUTOMATIC1111/stable-diffusion-webui/pull/4334">here</a> for detailed information. </p>
+<p>Adds the ability to use proper variable dropout rate, like 0.05. Also fixes issues with using hypernetwork right after training.</p>
+<p>Adds creating beta-hypernetwork(dropout), and beta-training which allows automatic cosine annealing, and no-crop usage of original images.</p>
+<h2 id="saving-steps-of-the-sampling-process">Saving steps of the sampling process</h2>
+<p>This script will save steps of the sampling process to a directory.</p>
+<pre><code class="language-python">import os.path
+
+import modules.scripts as scripts
+import gradio as gr
+
+from modules import sd_samplers, shared
+from modules.processing import Processed, process_images
+
+
+class Script(scripts.Script):
+    def title(self):
+        return &quot;Save steps of the sampling process to files&quot;
+
+    def ui(self, is_img2img):
+        path = gr.Textbox(label=&quot;Save images to path&quot;)
+        return [path]
+
+    def run(self, p, path):
+        index = [0]
+
+        def store_latent(x):
+            image = shared.state.current_image = sd_samplers.sample_to_image(x)
+            image.save(os.path.join(path, f&quot;sample-{index[0]:05}.png&quot;))
+            index[0] += 1
+            fun(x)
+
+        fun = sd_samplers.store_latent
+        sd_samplers.store_latent = store_latent
+
+        try:
+            proc = process_images(p)
+        finally:
+            sd_samplers.store_latent = fun
+
+        return Processed(p, proc.images, p.seed, &quot;&quot;)
+</code></pre>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.51d95adb.min.js"></script>
+      
+    
+  </body>
+</html>

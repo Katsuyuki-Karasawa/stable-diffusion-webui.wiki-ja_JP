@@ -1,0 +1,1455 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Extensions/">
+      
+      
+        <link rel="next" href="../Home/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.6">
+    
+    
+      
+        <title>Features - SDWebUI Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.558e4712.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.2505c338.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#extra-networks" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="SDWebUI Wiki" class="md-header__button md-logo" aria-label="SDWebUI Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SDWebUI Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Features
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="SDWebUI Wiki" class="md-nav__button md-logo" aria-label="SDWebUI Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    SDWebUI Wiki
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../API/" class="md-nav__link">
+        API
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Change-UI-Defaults/" class="md-nav__link">
+        Change UI Defaults
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Command-Line-Arguments-and-Settings/" class="md-nav__link">
+        Command Line Arguments and Settings
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Contributing/" class="md-nav__link">
+        Pull requests
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Custom-Images-Filename-Name-and-Subdirectory/" class="md-nav__link">
+        Custom Images Filename Name and Subdirectory
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Custom-Scripts/" class="md-nav__link">
+        Installing and Using Custom Scripts
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Dependencies/" class="md-nav__link">
+        Required Dependencies
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Developing-custom-scripts/" class="md-nav__link">
+        Developing custom scripts
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Developing-extensions/" class="md-nav__link">
+        Developing extensions
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Extensions-index/" class="md-nav__link">
+        Extensions index
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Extensions/" class="md-nav__link">
+        General info
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Features
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Features
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#textual-inversion" class="md-nav__link">
+    Textual Inversion
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lora" class="md-nav__link">
+    Lora
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hypernetworks" class="md-nav__link">
+    Hypernetworks
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Home/" class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Install-and-Run-on-AMD-GPUs/" class="md-nav__link">
+        Install and Run on AMD GPUs
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Install-and-Run-on-NVidia-GPUs/" class="md-nav__link">
+        Install and Run on NVidia GPUs
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Installation-on-Apple-Silicon/" class="md-nav__link">
+        Installation on Apple Silicon
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../List-of-Time-Zones/" class="md-nav__link">
+        List of Time Zones
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Localization/" class="md-nav__link">
+        Using localization files
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Negative-prompt/" class="md-nav__link">
+        Negative prompt
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Online-Services/" class="md-nav__link">
+        Online Services
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Optimizations/" class="md-nav__link">
+        Optimizations
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Seed-breaking-changes/" class="md-nav__link">
+        2023-01-23 - Alternating words syntax bugfix
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tests/" class="md-nav__link">
+        Tests
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Textual-Inversion/" class="md-nav__link">
+        What is Textual Inversion?
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Troubleshooting/" class="md-nav__link">
+        Troubleshooting
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Xformers/" class="md-nav__link">
+        Xformers
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../_Footer/" class="md-nav__link">
+         Footer
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#textual-inversion" class="md-nav__link">
+    Textual Inversion
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lora" class="md-nav__link">
+    Lora
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hypernetworks" class="md-nav__link">
+    Hypernetworks
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<p>This is a feature showcase page for <a href="https://github.com/AUTOMATIC1111/stable-diffusion-webui">Stable Diffusion web UI</a>.</p>
+<p>All examples are non-cherrypicked unless specified otherwise.</p>
+<h1 id="extra-networks">Extra networks</h1>
+<p>A single button with a picture of a card on it. It unifies multiple extra ways to extend your generation into one UI. </p>
+<p>Find it next to the big Generate button:
+<img alt="firefox_QOnhgmmSi5" src="https://user-images.githubusercontent.com/20920490/214776880-2fe558e1-6f63-432f-b0c6-675e1d1a0822.png" /></p>
+<p>Extra networks provides a set of cards, each corresponding to a file with a part of model you either train or obtain from somewhere. Clicking the card adds the model to prompt, where it will affect generation.</p>
+<table>
+<thead>
+<tr>
+<th>Extra network</th>
+<th>Directory</th>
+<th>File types</th>
+<th>How to use in prompt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Textual Inversion</td>
+<td><code>embeddings</code></td>
+<td><code>*.pt</code>, images</td>
+<td>embedding's filename</td>
+</tr>
+<tr>
+<td>Lora</td>
+<td><code>models/Lora</code></td>
+<td><code>*.pt</code></td>
+<td><code>&lt;lora:filename:multiplier&gt;</code></td>
+</tr>
+<tr>
+<td>Hypernetworks</td>
+<td><code>models/hypernetworks</code></td>
+<td><code>*.pt</code>, <code>*.ckpt</code>, <code>*.safetensors</code></td>
+<td><code>&lt;hypernet:filename:multiplier&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="textual-inversion">Textual Inversion</h2>
+<p>A method to fine tune weights for a token in CLIP, the language model used by Stable Diffusion, from summer 2021. <a href="https://textual-inversion.github.io/">Author's site</a>. Long explanation: <a href="Textual-Inversion">Textual Inversion</a></p>
+<h2 id="lora">Lora</h2>
+<p>A method to fine tune weights for CLIP and Unet, the language model and the actual image de-noiser used by Stable Diffusion, published in 2021. <a href="https://arxiv.org/abs/2106.09685">Paper</a>. A good way to train Lora is to use <a href="https://github.com/kohya-ss/sd-scripts">kohya-ss</a>.</p>
+<p>Support for Lora is built-in into the Web UI, but there is an <a href="https://github.com/kohya-ss/sd-webui-additional-networks">extension</a> with original implementation by kohyaa-ss.</p>
+<p>Currently, Lora networks for Stable Diffusion 2.0+ models are not supported by Web UI.</p>
+<p>Lora is added to the prompt by putting the following text into any location: <code>&lt;lora:filename:multiplier&gt;</code>, where <code>filename</code> is the name of file with Lora on disk, excluding extension, and <code>multiplier</code> is a number, generally from 0 to 1, that lets you choose how strongly Lora will affect the output. Lora cannot be added to the negative prompt.</p>
+<p>The text for adding Lora to the prompt, <code>&lt;lora:filename:multiplier&gt;</code>, is only used to enable Lora, and is erased from prompt afterwards, so you can't do tricks with prompt editing like <code>[&lt;lora:one:1.0&gt;|&lt;lora:two:1.0&gt;]</code>. A batch with multiple different prompts will only use the Lora from the first prompt.</p>
+<h2 id="hypernetworks">Hypernetworks</h2>
+<p>A method to fine tune weights for CLIP and Unet, the language model and the actual image de-noiser used by Stable Diffusion, generously donated to the world by our friends at Novel AI in autumn 2022. Works in the same way as Lora except for sharing weights for some layers. Multiplier can be used to choose how strongly the hypernetwork will affect the output.</p>
+<p>Same rules for adding hypernetworks to the prompt apply as for Lora: <code>&lt;hypernet:filename:multiplier&gt;</code>.</p>
+<h1 id="alt-diffusion">Alt-Diffusion</h1>
+<p>A model trained to accept inputs in different languages.
+<a href="https://arxiv.org/abs/2211.06679">More info</a>.
+<a href="https://github.com/AUTOMATIC1111/stable-diffusion-webui/pull/5238">PR</a>.</p>
+<ul>
+<li><a href="https://huggingface.co/webui/AltDiffusion-m9/tree/main">Download</a> the model and accompanying yaml file from huggingface. Click the down arrow to download.</li>
+<li>Put the files into <code>models/Stable-Diffusion</code></li>
+</ul>
+<details><summary>Notes: (Click to expand:)</summary>
+
+Mechanically, attention/emphasis mechanism is supported, but seems to have much less effect, probably due to how Alt-Diffusion is implemented. 
+
+Clip skip is not supported, the setting is ignored.
+
+- It is recommended to run with `--xformers.` Adding additional memory-saving flags such as `--xformers --medvram` does not work.
+
+</details>
+
+<h1 id="stable-diffusion-20">Stable Diffusion 2.0</h1>
+<ol>
+<li>Download your model and accompanying yaml file from huggingface. Click the down arrow to download.</li>
+<li>Put the files into <code>models/Stable-Diffusion</code></li>
+<li>
+<p>Rename the <code>.yaml</code> to the name of your model if not already done - eg: <code>sd.ckpt</code>, <code>sd.yaml</code></p>
+</li>
+<li>
+<p>768 (2.0) - (<a href="https://huggingface.co/stabilityai/stable-diffusion-2/blob/main/768-v-ema.ckpt">model</a>, <a href="https://raw.githubusercontent.com/Stability-AI/stablediffusion/main/configs/stable-diffusion/v2-inference-v.yaml">yaml</a>) </p>
+</li>
+<li>768 (2.1) - (<a href="https://huggingface.co/webui/stable-diffusion-2-1/tree/main">model+yaml</a>) - <code>.safetensors</code></li>
+<li>512 (2.0) - (<a href="https://huggingface.co/stabilityai/stable-diffusion-2-base/blob/main/512-base-ema.ckpt">model</a>, <a href="https://raw.githubusercontent.com/Stability-AI/stablediffusion/main/configs/stable-diffusion/v2-inference.yaml">yaml</a>)</li>
+</ol>
+<details><summary>Notes: (Click to expand:)</summary>
+
+If 2.0 or 2.1 is generating black images, enable full precision with `--no-half` or try using the `--xformers` optimization.
+
+_**Note:**_ SD 2.0 and 2.1 are more sensitive to FP16 numerical instability (as noted by themselves [here](https://github.com/Stability-AI/stablediffusion/commit/c12d960d1ee4f9134c2516862ef991ec52d3f59e)) due to their new cross attention module.
+
+On fp16: [comment](https://github.com/AUTOMATIC1111/stable-diffusion-webui/issues/5503#issuecomment-1341495770) to enable, in webui-user.bat:
+
+    @echo off
+
+    set PYTHON=
+    set GIT=
+    set VENV_DIR=
+    set COMMANDLINE_ARGS=your command line options
+    set STABLE_DIFFUSION_COMMIT_HASH="c12d960d1ee4f9134c2516862ef991ec52d3f59e"
+    set ATTN_PRECISION=fp16
+
+    call webui.bat
+
+</details>
+
+<h2 id="depth-guided-model">Depth Guided Model</h2>
+<p>The depth-guided model will only work in img2img tab. 
+<a href="https://github.com/Stability-AI/stablediffusion#depth-conditional-stable-diffusion">More info</a>. <a href="https://github.com/AUTOMATIC1111/stable-diffusion-webui/pull/5542">PR</a>.</p>
+<ul>
+<li>512 depth (2.0) - (<a href="https://huggingface.co/webui/stable-diffusion-2-depth/tree/main">model+yaml</a>) - <code>.safetensors</code></li>
+<li>512 depth (2.0) - (<a href="https://huggingface.co/stabilityai/stable-diffusion-2-depth/tree/main">model</a>, <a href="https://raw.githubusercontent.com/Stability-AI/stablediffusion/main/configs/stable-diffusion/v2-midas-inference.yaml">yaml</a>)</li>
+</ul>
+<h2 id="inpainting-model-sd2">Inpainting Model SD2</h2>
+<p>Model specifically designed for inpainting trained on SD 2.0 512 base.</p>
+<ul>
+<li>512 inpainting (2.0) - (<a href="https://huggingface.co/webui/stable-diffusion-2-inpainting/tree/main">model+yaml</a>) - <code>.safetensors</code></li>
+</ul>
+<p><code>inpainting_mask_weight</code> or inpainting conditioning mask strength works on this too.</p>
+<h1 id="outpainting">Outpainting</h1>
+<p>Outpainting extends the original image and inpaints the created empty space.</p>
+<p>Example:</p>
+<table>
+<thead>
+<tr>
+<th>Original</th>
+<th>Outpainting</th>
+<th>Outpainting again</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="" src="../images/outpainting-1.png" /></td>
+<td><img alt="" src="../images/outpainting-2.png" /></td>
+<td><img alt="" src="../images/outpainting-3.png" /></td>
+</tr>
+</tbody>
+</table>
+<p>Original image by Anonymous user from 4chan. Thank you, Anonymous user.</p>
+<p>You can find the feature in the img2img tab at the bottom, under Script -&gt; Poor man's outpainting.</p>
+<p>Outpainting, unlike normal image generation, seems to profit very much from large step count. A recipe for a good outpainting
+is a good prompt that matches the picture, sliders for denoising and CFG scale set to max, and step count of 50 to 100 with
+Euler ancestral or DPM2 ancestral samplers.</p>
+<table>
+<thead>
+<tr>
+<th>81 steps, Euler A</th>
+<th>30 steps, Euler A</th>
+<th>10 steps, Euler A</th>
+<th>80 steps, Euler A</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="" src="../images/inpainting-81-euler-a.png" /></td>
+<td><img alt="" src="../images/inpainting-30-euler-a.png" /></td>
+<td><img alt="" src="../images/inpainting-10-euler-a.png" /></td>
+<td><img alt="" src="../images/inpainting-80-dpm2-a.png" /></td>
+</tr>
+</tbody>
+</table>
+<h1 id="inpainting">Inpainting</h1>
+<p>In img2img tab, draw a mask over a part of the image, and that part will be in-painted.</p>
+<p><img alt="" src="../images/inpainting.png" /></p>
+<p>Options for inpainting:
+- draw a mask yourself in the web editor
+- erase a part of the picture in an external editor and upload a transparent picture. Any even slightly transparent areas will become part of the mask. Be aware that <a href="https://docs.krita.org/en/reference_manual/layers_and_masks/split_alpha.html#how-to-save-a-png-texture-and-keep-color-values-in-fully-transparent-areas">some editors</a> save completely transparent areas as black by default.
+- change mode (to the bottom right of the picture) to "Upload mask" and choose a separate black and white image for the mask (white=inpaint).</p>
+<h2 id="inpainting-model">Inpainting model</h2>
+<p>RunwayML has trained an additional model specifically designed for inpainting. This model accepts additional inputs - the initial image without noise plus the mask - and seems to be much better at the job.</p>
+<p>Download and extra info for the model is here: https://github.com/runwayml/stable-diffusion#inpainting-with-stable-diffusion</p>
+<p>To use the model, you must rename the checkpoint so that its filename ends in <code>inpainting.ckpt</code>, for example, <code>1.5-inpainting.ckpt</code>.</p>
+<p>After that just select the checkpoint as you'd usually select any checkpoint and you're good to go.</p>
+<h2 id="masked-content">Masked content</h2>
+<p>The masked content field determines content is placed to put into the masked regions before they are inpainted.</p>
+<table>
+<thead>
+<tr>
+<th>mask</th>
+<th>fill</th>
+<th>original</th>
+<th>latent noise</th>
+<th>latent nothing</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="" src="../images/inpainting-initial-content-mask.png" /></td>
+<td><img alt="" src="../images/inpainting-initial-content-fill.png" /></td>
+<td><img alt="" src="../images/inpainting-initial-content-original.png" /></td>
+<td><img alt="" src="../images/inpainting-initial-content-latent-noise.png" /></td>
+<td><img alt="" src="../images/inpainting-initial-content-latent-nothing.png" /></td>
+</tr>
+</tbody>
+</table>
+<h2 id="inpaint-area">Inpaint area</h2>
+<p>Normally, inpainting resizes the image to the target resolution specified in the UI. With <code>Inpaint area: Only masked</code>
+enabled, only the masked region is resized, and after processing it is pasted back to the original picture.
+This allows you to work with large pictures and render the inpainted object at a much larger resolution.</p>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Inpaint area: Whole picture</th>
+<th>Inpaint area: Only masked</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="" src="../images/inpaint-whole-mask.png" /></td>
+<td><img alt="" src="../images/inpaint-whole-no.png" /></td>
+<td><img alt="" src="../images/inpaint-whole-yes.png" /></td>
+</tr>
+</tbody>
+</table>
+<h2 id="masking-mode">Masking mode</h2>
+<p>There are two options for masked mode:
+- Inpaint masked - the region under the mask is inpainted
+- Inpaint not masked - under the mask is unchanged, everything else is inpainted</p>
+<h2 id="alpha-mask">Alpha mask</h2>
+<table>
+<thead>
+<tr>
+<th>Input</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="" src="../images/inpaint-mask.png" /></td>
+<td><img alt="" src="../images/inpaint-mask2.png" /></td>
+</tr>
+</tbody>
+</table>
+<h2 id="color-sketch">Color Sketch</h2>
+<p>Basic coloring tool for the img2img tab. Chromium-based browsers support a dropper tool.
+<img alt="color-sketch_NewUI" src="https://user-images.githubusercontent.com/98228077/214700734-2260f6f0-0fdf-46db-a2c6-71e5ec60e43b.png" />
+(this is on firefox)</p>
+<h1 id="prompt-matrix">Prompt matrix</h1>
+<p>Separate multiple prompts using the <code>|</code> character, and the system will produce an image for every combination of them.
+For example, if you use <code>a busy city street in a modern city|illustration|cinematic lighting</code> prompt, there are four combinations possible (first part of the prompt is always kept):</p>
+<ul>
+<li><code>a busy city street in a modern city</code></li>
+<li><code>a busy city street in a modern city, illustration</code></li>
+<li><code>a busy city street in a modern city, cinematic lighting</code></li>
+<li><code>a busy city street in a modern city, illustration, cinematic lighting</code></li>
+</ul>
+<p>Four images will be produced, in this order, all with the same seed and each with a corresponding prompt:
+<img alt="" src="../images/prompt-matrix.png" /></p>
+<p>Another example, this time with 5 prompts and 16 variations:
+<img alt="" src="../images/prompt_matrix.jpg" /></p>
+<p>You can find the feature at the bottom, under Script -&gt; Prompt matrix.</p>
+<h1 id="stable-diffusion-upscale">Stable Diffusion upscale</h1>
+<p>Upscale image using RealESRGAN/ESRGAN and then go through tiles of the result, improving them with img2img.
+It also has an option to let you do the upscaling part yourself in an external program, and just go through tiles with img2img.</p>
+<p>Original idea by: https://github.com/jquesnelle/txt2imghd. This is an independent implementation.</p>
+<p>To use this feature, select <code>SD upscale from the scripts dropdown selection</code> (img2img tab).</p>
+<p><img alt="chrome_dl8hcMPYcx" src="https://user-images.githubusercontent.com/39339941/193300082-be3b8864-3c28-44b7-bb75-f893f92269b6.png" /></p>
+<p>The input image will be upscaled to twice the original
+width and height, and UI's width and height sliders specify the size of individual tiles. Because of overlap,
+the size of the tile can be very important: 512x512 image needs nine 512x512 tiles (because of overlap), but only
+four 640x640 tiles.</p>
+<p>Recommended parameters for upscaling:
+ - Sampling method: Euler a
+ - Denoising strength: 0.2, can go up to 0.4 if you feel adventurous</p>
+<table>
+<thead>
+<tr>
+<th>Original</th>
+<th>RealESRGAN</th>
+<th>Topaz Gigapixel</th>
+<th>SD upscale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="" src="../images/sd-upscale-robot-original.png" /></td>
+<td><img alt="" src="../images/sd-upscale-robot-realesrgan.png" /></td>
+<td><img alt="" src="../images/sd-upscale-robot-esrgan-topaz-gigapixel.png" /></td>
+<td><img alt="" src="../images/sd-upscale-robot-sd-upscale.png" /></td>
+</tr>
+<tr>
+<td><img alt="" src="../images/sd-upscale-castle-original.png" /></td>
+<td><img alt="" src="../images/sd-upscale-castle-realesrgan.png" /></td>
+<td><img alt="" src="../images/sd-upscale-castle-esrgan-topaz-gigapixel.png" /></td>
+<td><img alt="" src="../images/sd-upscale-castle-sd-upscale.png" /></td>
+</tr>
+<tr>
+<td><img alt="" src="../images/sd-upscale-city-original.png" /></td>
+<td><img alt="" src="../images/sd-upscale-city-realesrgan.png" /></td>
+<td><img alt="" src="../images/sd-upscale-city-esrgan-topaz-gigapixel.png" /></td>
+<td><img alt="" src="../images/sd-upscale-city-sd-upscale.png" /></td>
+</tr>
+</tbody>
+</table>
+<h1 id="infinite-prompt-length">Infinite prompt length</h1>
+<p>Typing past standard 75 tokens that Stable Diffusion usually accepts increases prompt size limit from 75 to 150. Typing past that increases prompt size further. This is done by breaking the prompt into chunks of 75 tokens, processing each independently using CLIP's Transformers neural network, and then concatenating the result before feeding into the next component of stable diffusion, the Unet.</p>
+<p>For example, a prompt with 120 tokens would be separated into two chunks: first with 75 tokens, second with 45. Both would be padded to 75 tokens and extended with start/end tokens to 77. After passing those two chunks though CLIP, we'll have two tensors with shape of <code>(1, 77, 768)</code>. Concatenating those results in <code>(1, 154, 768)</code> tensor that is then passed to Unet without issue.</p>
+<h2 id="break-keyword">BREAK keyword</h2>
+<p>Adding a <code>BREAK</code> keyword (must be uppercase) fills the current chunks with padding characters. Adding more text after <code>BREAK</code> text will start a new chunk.</p>
+<h1 id="attentionemphasis">Attention/emphasis</h1>
+<p>Using <code>()</code> in the prompt increases the model's attention to enclosed words, and <code>[]</code> decreases it. You can combine multiple modifiers:</p>
+<p><img alt="" src="../images/attention-3.jpg" /></p>
+<p>Cheat sheet:</p>
+<ul>
+<li><code>a (word)</code> - increase attention to <code>word</code> by a factor of 1.1</li>
+<li><code>a ((word))</code> - increase attention to <code>word</code> by a factor of 1.21 (= 1.1 * 1.1)</li>
+<li><code>a [word]</code> - decrease attention to <code>word</code> by a factor of 1.1</li>
+<li><code>a (word:1.5)</code> - increase attention to <code>word</code> by a factor of 1.5</li>
+<li><code>a (word:0.25)</code> - decrease attention to <code>word</code> by a factor of 4 (= 1 / 0.25)</li>
+<li><code>a \(word\)</code> - use literal <code>()</code> characters in prompt</li>
+</ul>
+<p>With <code>()</code>, a weight can be specified like this: <code>(text:1.4)</code>. If the weight is not specified, it is assumed to be 1.1. Specifying weight only works with <code>()</code> not with <code>[]</code>.</p>
+<p>If you want to use any of the literal <code>()[]</code> characters in the prompt, use the backslash to escape them: <code>anime_\(character\)</code>.</p>
+<p>On 2022-09-29, a new implementation was added that supports escape characters and numerical weights. A downside of the new implementation is that the old one was not perfect and sometimes ate characters: "a (((farm))), daytime", for example, would become "a farm daytime" without the comma. This behavior is not shared by the new implementation which preserves all text correctly, and this means that your saved seeds may produce different pictures. For now, there is an option in settings to use the old implementation.</p>
+<p>NAI uses my implementation from before 2022-09-29, except they have 1.05 as the multiplier and use <code>{}</code> instead of <code>()</code>. So the conversion applies:</p>
+<ul>
+<li>their <code>{word}</code> = our <code>(word:1.05)</code></li>
+<li>their <code>{{word}}</code> = our <code>(word:1.1025)</code></li>
+<li>their <code>[word]</code> = our <code>(word:0.952)</code> (0.952 = 1/1.05)</li>
+<li>their <code>[[word]]</code> = our <code>(word:0.907)</code> (0.907 = 1/1.05/1.05)</li>
+</ul>
+<h1 id="loopback">Loopback</h1>
+<p>Selecting the loopback script in img2img allows you to automatically feed output image as input for the next batch. Equivalent to
+saving output image, and replacing the input image with it. Batch count setting controls how many iterations of
+this you get.</p>
+<p>Usually, when doing this, you would choose one of many images for the next iteration yourself, so the usefulness
+of this feature may be questionable, but I've managed to get some very nice outputs with it that I wasn't able
+to get otherwise.</p>
+<p>Example: (cherrypicked result)</p>
+<p><img alt="" src="../images/loopback.jpg" /></p>
+<p>Original image by Anonymous user from 4chan. Thank you, Anonymous user.</p>
+<h1 id="xy-plot">X/Y plot</h1>
+<p>Creates a grid of images with varying parameters. Select which parameters should be shared by rows and columns using
+X type and Y type fields, and input those parameters separated by comma into X values/Y values fields. For integer,
+and floating point numbers, and ranges are supported. Examples:</p>
+<ul>
+<li>Simple ranges:</li>
+<li><code>1-5</code> = 1, 2, 3, 4, 5</li>
+<li>Ranges with increment in bracket:</li>
+<li><code>1-5 (+2)</code> = 1, 3, 5</li>
+<li><code>10-5 (-3)</code> = 10, 7</li>
+<li><code>1-3 (+0.5)</code> = 1, 1.5, 2, 2.5, 3</li>
+<li>Ranges with the count in square brackets:</li>
+<li><code>1-10 [5]</code> = 1, 3, 5, 7, 10</li>
+<li><code>0.0-1.0 [6]</code> = 0.0, 0.2, 0.4, 0.6, 0.8, 1.0</li>
+</ul>
+<p><img alt="" src="../images/xy_grid-medusa.png" /></p>
+<p>Here are the settings that create the graph above:</p>
+<p><img alt="" src="../images/xy_grid-medusa-ui.png" /></p>
+<h3 id="prompt-sr">Prompt S/R</h3>
+<p>Prompt S/R is one of more difficult to understand modes of operation for X/Y Plot. S/R stands for search/replace, and that's what it does - you input a list of words or phrases, it takes the first from the list and treats it as keyword, and replaces all instances of that keyword with other entries from  the list.</p>
+<p>For example, with prompt <code>a man holding an apple, 8k clean</code>, and Prompt S/R <code>an apple, a watermelon, a gun</code> you will get three prompts:</p>
+<ul>
+<li><code>a man holding an apple, 8k clean</code></li>
+<li><code>a man holding a watermelon, 8k clean</code></li>
+<li><code>a man holding a gun, 8k clean</code></li>
+</ul>
+<p>The list uses the same syntax as a line in a CSV file, so if you want to include commas into your entries you have to put text in quotes and make sure there is no space between quotes and separating commas:</p>
+<ul>
+<li><code>darkness, light, green, heat</code> - 4 items - <code>darkness</code>, <code>light</code>, <code>green</code>, <code>heat</code></li>
+<li><code>darkness, "light, green", heat</code> - WRONG - 4 items - <code>darkness</code>, <code>"light</code>, <code>green"</code>, <code>heat</code></li>
+<li><code>darkness,"light, green",heat</code> - RIGHT - 3 items - <code>darkness</code>, <code>light, green</code>, <code>heat</code></li>
+</ul>
+<h1 id="resizing">Resizing</h1>
+<p>There are three options for resizing input images in img2img mode:</p>
+<ul>
+<li>Just resize - simply resizes the source image to the target resolution, resulting in an incorrect aspect ratio</li>
+<li>Crop and resize - resize source image preserving aspect ratio so that entirety of target resolution is occupied by it, and crop parts that stick out</li>
+<li>Resize and fill - resize source image preserving aspect ratio so that it entirely fits target resolution, and fill empty space by rows/columns from the source image</li>
+</ul>
+<p>Example:
+<img alt="" src="../images/resizing.jpg" /></p>
+<h1 id="sampling-method-selection">Sampling method selection</h1>
+<p>Pick out of multiple sampling methods for txt2img:</p>
+<p><img alt="" src="../images/sampling.jpg" /></p>
+<h1 id="seed-resize">Seed resize</h1>
+<p>This function allows you to generate images from known seeds at different resolutions. Normally, when you change resolution,
+the image changes entirely, even if you keep all other parameters including seed. With seed resizing you specify the resolution
+of the original image, and the model will very likely produce something looking very similar to it, even at a different resolution.
+In the example below, the leftmost picture is 512x512, and others are produced with exact same parameters but with larger vertical
+resolution.</p>
+<table>
+<thead>
+<tr>
+<th>Info</th>
+<th>Image</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Seed resize not enabled</td>
+<td><img alt="" src="../images/seed-noresize.png" /></td>
+</tr>
+<tr>
+<td>Seed resized from 512x512</td>
+<td><img alt="" src="../images/seed-resize.png" /></td>
+</tr>
+</tbody>
+</table>
+<p>Ancestral samplers are a little worse at this than the rest.</p>
+<p>You can find this feature by clicking the "Extra" checkbox near the seed.</p>
+<h1 id="variations">Variations</h1>
+<p>A Variation strength slider and Variation seed field allow you to specify how much the existing picture should be altered to look
+like a different one. At maximum strength, you will get pictures with the Variation seed, at minimum - pictures with the original Seed (except
+for when using ancestral samplers).</p>
+<p><img alt="" src="../images/seed-variations.jpg" /></p>
+<p>You can find this feature by clicking the "Extra" checkbox near the seed.</p>
+<h1 id="styles">Styles</h1>
+<p>Press the "Save prompt as style" button to write your current prompt to styles.csv, the file with a collection of styles. A dropbox to
+the right of the prompt will allow you to choose any style out of previously saved, and automatically append it to your input.
+To delete a style, manually delete it from styles.csv and restart the program.</p>
+<p>if you use the special string <code>{prompt}</code> in your style, it will substitute anything currently in the prompt into that position, rather than appending the style to your prompt.</p>
+<h1 id="negative-prompt">Negative prompt</h1>
+<p>Allows you to use another prompt of things the model should avoid when generating the picture. This works by using the
+negative prompt for unconditional conditioning in the sampling process instead of an empty string.</p>
+<p>Advanced explanation: <a href="Negative-prompt">Negative prompt</a></p>
+<table>
+<thead>
+<tr>
+<th>Original</th>
+<th>Negative: purple</th>
+<th>Negative: tentacles</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="" src="../images/negative-base.png" /></td>
+<td><img alt="" src="../images/negative-purple.png" /></td>
+<td><img alt="" src="../images/negative-tentacles.png" /></td>
+</tr>
+</tbody>
+</table>
+<h1 id="clip-interrogator">CLIP interrogator</h1>
+<p>Originally by: https://github.com/pharmapsychotic/clip-interrogator</p>
+<p>CLIP interrogator allows you to retrieve the prompt from an image. The prompt won't allow you to reproduce this
+exact image (and sometimes it won't even be close), but it can be a good start.</p>
+<p><img alt="" src="../images/CLIP-interrogate.png" /></p>
+<p>The first time you run CLIP interrogator it will download a few gigabytes of models.</p>
+<p>CLIP interrogator has two parts: one is a BLIP model that creates a text description from the picture.
+Other is a CLIP model that will pick few lines relevant to the picture out of a list. By default, there
+is only one list - a list of artists (from <code>artists.csv</code>). You can add more lists by doing the following:</p>
+<ul>
+<li>create <code>interrogate</code> directory in the same place as webui</li>
+<li>put text files in it with a relevant description on each line</li>
+</ul>
+<p>For example of what text files to use, see https://github.com/pharmapsychotic/clip-interrogator/tree/main/clip_interrogator/data.
+In fact, you can just take files from there and use them - just skip artists.txt because you already have a list of
+artists in <code>artists.csv</code> (or use that too, who's going to stop you). Each file adds one line of text to the final description.
+If you add ".top3." to filename, for example, <code>flavors.top3.txt</code>, the three most relevant lines from this file will be
+added to the prompt (other numbers also work).</p>
+<p>There are settings relevant to this feature:
+ - <code>Interrogate: keep models in VRAM</code> - do not unload Interrogate models from memory after using them. For users with a lot of VRAM.
+ - <code>Interrogate: use artists from artists.csv</code> - adds artist from <code>artists.csv</code> when interrogating. Can be useful to disable when you have your list of artists in <code>interrogate</code> directory
+ - <code>Interrogate: num_beams for BLIP</code> - parameter that affects how detailed descriptions from BLIP model are (the first part of generated prompt)
+ - <code>Interrogate: minimum description length</code> - minimum length for BLIP model's text
+ - <code>Interrogate: maximum descripton length</code> - maximum length for BLIP model's text
+ - <code>Interrogate: maximum number of lines in text file</code> - interrogator will only consider this many first lines in a file. Set to 0, the default is 1500, which is about as much as a 4GB videocard can handle.</p>
+<h1 id="prompt-editing">Prompt editing</h1>
+<p><img alt="xy_grid-0022-646033397" src="https://user-images.githubusercontent.com/20920490/190426933-9748708b-6db0-4cb0-8cb9-3285053916b8.jpg" /></p>
+<p>Prompt editing allows you to start sampling one picture, but in the middle swap to something else. The base syntax for this is:</p>
+<pre><code>[from:to:when]
+</code></pre>
+<p>Where <code>from</code> and <code>to</code> are arbitrary texts, and <code>when</code> is a number that defines how late in the sampling cycle should the switch be made. The later it is, the less power the model has to draw the <code>to</code> text in place of <code>from</code> text. If <code>when</code> is a number between 0 and 1, it's a fraction of the number of steps after which to make the switch. If it's an integer greater than zero, it's just the step after which to make the switch.</p>
+<p>Nesting one prompt editing inside another does work.</p>
+<p>Additionally:
+- <code>[to:when]</code> - adds <code>to</code> to the prompt after a fixed number of steps (<code>when</code>)
+- <code>[from::when]</code> - removes <code>from</code> from the prompt after a fixed number of steps (<code>when</code>)</p>
+<p>Example:
+<code>a [fantasy:cyberpunk:16] landscape</code></p>
+<ul>
+<li>At start, the model will be drawing <code>a fantasy landscape</code>.</li>
+<li>After step 16, it will switch to drawing <code>a cyberpunk landscape</code>, continuing from where it stopped with fantasy.</li>
+</ul>
+<p>Here's a more complex example with multiple edits:
+<code>fantasy landscape with a [mountain:lake:0.25] and [an oak:a christmas tree:0.75][ in foreground::0.6][ in background:0.25] [shoddy:masterful:0.5]</code> (sampler has 100 steps)</p>
+<ul>
+<li>at start, <code>fantasy landscape with a mountain and an oak in foreground shoddy</code></li>
+<li>after step 25, <code>fantasy landscape with a lake and an oak in foreground in background shoddy</code></li>
+<li>after step 50, <code>fantasy landscape with a lake and an oak in foreground in background masterful</code></li>
+<li>after step 60, <code>fantasy landscape with a lake and an oak in background masterful</code></li>
+<li>after step 75, <code>fantasy landscape with a lake and a christmas tree in background masterful</code></li>
+</ul>
+<p>The picture at the top was made with the prompt:</p>
+<p>`Official portrait of a smiling world war ii general, [male:female:0.99], cheerful, happy, detailed face, 20th century, highly detailed, cinematic lighting, digital art painting by Greg Rutkowski's</p>
+<p>And the number 0.99 is replaced with whatever you see in column labels on the image.</p>
+<p>The last column in the picture is [male:female:0.0], which essentially means that you are asking the model to draw a female from the start, without starting with a male general, and that is why it looks so different from others.</p>
+<h2 id="alternating-words">Alternating Words</h2>
+<p>Convenient Syntax for swapping every other step.</p>
+<pre><code>[cow|horse] in a field
+</code></pre>
+<p>On step 1, prompt is "cow in a field." Step 2 is "horse in a field." Step 3 is "cow in a field" and so on.</p>
+<p><img alt="Alternating Words" src="https://user-images.githubusercontent.com/39339941/197556926-49ceb72b-daf3-4208-86f3-c2e7e9cd775a.gif" /></p>
+<p>See more advanced example below. On step 8, the chain loops back from "man" to "cow."</p>
+<pre><code>[cow|cow|horse|man|siberian tiger|ox|man] in a field
+</code></pre>
+<p>Prompt editing was first implemented by Doggettx in <a href="https://www.reddit.com/r/StableDiffusion/comments/xas2os/simple_prompt2prompt_implementation_with_prompt/">this myspace.com post</a>.</p>
+<h1 id="hires-fix">Hires. fix</h1>
+<p>A convenience option to partially render your image at a lower resolution, upscale it, and then add details at a high resolution. By default, txt2img  makes horrible images at very high resolutions, and this makes it possible to avoid using the small picture's composition. Enabled by checking the "Hires. fix" checkbox on the txt2img page.</p>
+<table>
+<thead>
+<tr>
+<th>Without</th>
+<th>With</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="00262-836728130" src="https://user-images.githubusercontent.com/20920490/191177752-ad983e62-8e1c-4197-8f3b-3165a6a6c31d.png" /></td>
+<td><img alt="00261-836728130" src="https://user-images.githubusercontent.com/20920490/191177785-395a951e-0d2e-4db7-9645-4c5af9321772.png" /></td>
+</tr>
+<tr>
+<td><img alt="00345-950170121" src="https://user-images.githubusercontent.com/20920490/191178018-25dcd98d-6c45-4c31-ab7a-3de6c51c52e3.png" /></td>
+<td><img alt="00341-950170121" src="https://user-images.githubusercontent.com/20920490/191178048-3eba3db4-e5be-4617-9bfe-2cb36cebaafc.png" /></td>
+</tr>
+</tbody>
+</table>
+<p>Small picture is rendered at whatever resolution you set using width/height sliders.
+Large picture's dimensions are controlled by three sliders: "Scale by" multiplier (Hires upscale), "Resize width to" and/or "Resize height to" (Hires resize).</p>
+<ul>
+<li>If "Resize width to" and "Resize height to" are 0, "Scale by" is used.</li>
+<li>If "Resize width to" is 0, "Resize height to" is calculated from width and height.</li>
+<li>If "Resize height to" is 0, "Resize width to" is calculated from width and height.</li>
+<li>If both "Resize width to" and "Resize height to" are non-zero, image is upscaled to be at least those dimensions, and some parts are cropped.</li>
+</ul>
+<h2 id="upscalers">Upscalers</h2>
+<p>A dropdown allows you to to select the kind of upscaler to use for resizing the image. In addition to all upscalers you have available on extras tab, there is an option to upscale a latent space image, which is what stable diffusion works with internally - for a 3x512x512 RGB image, its latent space representation would be 4x64x64. To see what each latent space upscaler does, you can set Denoising strength to 0 and Hires steps to 1 - you'll get a very good approximation of that stable diffusion would be working with on upscaled image.</p>
+<p>Below are examples of how different latent upscale modes look. </p>
+<table>
+<thead>
+<tr>
+<th>Original</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="00084-2395363541" src="https://user-images.githubusercontent.com/20920490/210657893-0660c637-9f26-405e-83c9-3030e45fd5b0.png" /></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Latent, Latent (antialiased)</th>
+<th>Latent (bicubic), Latent (bicubic, antialiased)</th>
+<th>Latent (nearest)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="00071-2395363541" src="https://user-images.githubusercontent.com/20920490/210658048-d90ae87d-4534-4ca4-878b-9aaa4f43f901.png" /></td>
+<td><img alt="00073-2395363541" src="https://user-images.githubusercontent.com/20920490/210658501-c6a64c58-9343-470a-9f0b-6ae76c806725.png" /></td>
+<td><img alt="00077-2395363541" src="https://user-images.githubusercontent.com/20920490/210658607-ac5b5f30-af6a-4158-b968-9d1fdd6faf50.png" /></td>
+</tr>
+</tbody>
+</table>
+<p>Antialiased variations were PRd in by a contributor and seem to be the same as non-antialiased.</p>
+<h1 id="composable-diffusion">Composable Diffusion</h1>
+<p>A method to allow the combination of multiple prompts.
+combine prompts using an uppercase AND</p>
+<pre><code>a cat AND a dog
+</code></pre>
+<p>Supports weights for prompts: <code>a cat :1.2 AND a dog AND a penguin :2.2</code>
+The default weight value is 1.
+It can be quite useful for combining multiple embeddings to your result: <code>creature_embedding in the woods:0.7 AND arcane_embedding:0.5 AND glitch_embedding:0.2</code> </p>
+<p>Using a value lower than 0.1 will barely have an effect. <code>a cat AND a dog:0.03</code> will produce basically the same output as <code>a cat</code></p>
+<p>This could be handy for generating fine-tuned recursive variations, by continuing to append more prompts to your total. <code>creature_embedding on log AND frog:0.13 AND yellow eyes:0.08</code></p>
+<h1 id="interrupt">Interrupt</h1>
+<p>Press the Interrupt button to stop current processing.</p>
+<h1 id="4gb-videocard-support">4GB videocard support</h1>
+<p>Optimizations for GPUs with low VRAM. This should make it possible to generate 512x512 images on videocards with 4GB memory.</p>
+<p><code>--lowvram</code> is a reimplementation of an optimization idea by <a href="https://github.com/basujindal/stable-diffusion">basujindal</a>.
+Model is separated into modules, and only one module is kept in GPU memory; when another module needs to run, the previous
+is removed from GPU memory. The nature of this optimization makes the processing run slower -- about 10 times slower
+compared to normal operation on my RTX 3090.</p>
+<p><code>--medvram</code> is another optimization that should reduce VRAM usage significantly by not processing conditional and
+unconditional denoising in the same batch.</p>
+<p>This implementation of optimization does not require any modification to the original Stable Diffusion code.</p>
+<h1 id="face-restoration">Face restoration</h1>
+<p>Lets you improve faces in pictures using either GFPGAN or CodeFormer. There is a checkbox in every tab to use face restoration,
+and also a separate tab that just allows you to use face restoration on any picture, with a slider that controls how visible
+the effect is. You can choose between the two methods in settings.</p>
+<table>
+<thead>
+<tr>
+<th>Original</th>
+<th>GFPGAN</th>
+<th>CodeFormer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="" src="../images/facefix.png" /></td>
+<td><img alt="" src="../images/facefix-gfpgan.png" /></td>
+<td><img alt="" src="../images/facefix-codeformer.png" /></td>
+</tr>
+</tbody>
+</table>
+<h1 id="saving">Saving</h1>
+<p>Click the Save button under the output section, and generated images will be saved to a directory specified in settings;
+generation parameters will be appended to a csv file in the same directory.</p>
+<h1 id="loading">Loading</h1>
+<p>Gradio's loading graphic has a very negative effect on the processing speed of the neural network.
+My RTX 3090 makes images about 10% faster when the tab with gradio is not active. By default, the UI
+now hides loading progress animation and replaces it with static "Loading..." text, which achieves
+the same effect. Use the <code>--no-progressbar-hiding</code> commandline option to revert this and show loading animations.</p>
+<h1 id="prompt-validation">Prompt validation</h1>
+<p>Stable Diffusion has a limit for input text length. If your prompt is too long, you will get a
+warning in the text output field, showing which parts of your text were truncated and ignored by the model.</p>
+<h1 id="png-info">Png info</h1>
+<p>Adds information about generation parameters to PNG as a text chunk. You
+can view this information later using any software that supports viewing
+PNG chunk info, for example: https://www.nayuki.io/page/png-file-chunk-inspector</p>
+<h1 id="settings">Settings</h1>
+<p>A tab with settings, allows you to use UI to edit more than half of parameters that previously
+were commandline. Settings are saved to config.js file. Settings that remain as commandline
+options are ones that are required at startup.</p>
+<h1 id="filenames-format">Filenames format</h1>
+<p>The <code>Images filename pattern</code> field in the Settings tab allows customization of generated txt2img and img2img images filenames. This pattern defines the generation parameters you want to include in filenames and their order. The supported tags are:</p>
+<p><code>[steps], [cfg], [prompt], [prompt_no_styles], [prompt_spaces], [width], [height], [styles], [sampler], [seed], [model_hash], [prompt_words], [date], [datetime], [job_timestamp].</code></p>
+<p>This list will evolve though, with new additions. You can get an up-to-date list of supported tags by hovering your mouse over the "Images filename pattern" label in the UI.</p>
+<p>Example of a pattern: <code>[seed]-[steps]-[cfg]-[sampler]-[prompt_spaces]</code></p>
+<p>Note about "prompt" tags: <code>[prompt]</code> will add underscores between the prompt words, while <code>[prompt_spaces]</code> will keep the prompt intact (easier to copy/paste into the UI again). <code>[prompt_words]</code> is a simplified and cleaned-up version of your prompt, already used to generate subdirectories names, with only the words of your prompt (no punctuation).</p>
+<p>If you leave this field empty, the default pattern will be applied (<code>[seed]-[prompt_spaces]</code>).</p>
+<p>Please note that the tags are actually replaced inside the pattern. It means that you can also add non-tags words to this pattern, to make filenames even more explicit. For example: <code>s=[seed],p=[prompt_spaces]</code></p>
+<h1 id="user-scripts">User scripts</h1>
+<p>If the program is launched with <code>--allow-code</code> option, an extra text input field for script code
+is available at the bottom of the page, under Scripts -&gt; Custom code. It allows you to input python
+code that will do the work with the image.</p>
+<p>In code, access parameters from web UI using the <code>p</code> variable, and provide outputs for web UI
+using the <code>display(images, seed, info)</code> function. All globals from the script are also accessible.</p>
+<p>A simple script that would just process the image and output it normally:</p>
+<pre><code class="language-python">import modules.processing
+
+processed = modules.processing.process_images(p)
+
+print(&quot;Seed was: &quot; + str(processed.seed))
+
+display(processed.images, processed.seed, processed.info)
+</code></pre>
+<h1 id="ui-config">UI config</h1>
+<p>You can change parameters for UI elements in <code>ui-config.json</code>, it is created automatically when the program first starts. Some options:</p>
+<ul>
+<li>radio groups: default selection</li>
+<li>sliders: default value, min, max, step</li>
+<li>checkboxes: checked state</li>
+<li>text and number inputs: default values</li>
+</ul>
+<p>Checkboxes that would usually expand a hidden section will not initially do so when set as UI config entries.</p>
+<h1 id="esrgan">ESRGAN</h1>
+<p>It's possible to use ESRGAN models on the Extras tab, as well as in SD upscale.</p>
+<p>To use ESRGAN models, put them into ESRGAN directory in the same location as webui.py.
+A file will be loaded as a model if it has .pth extension. Grab models from the <a href="https://upscale.wiki/wiki/Model_Database">Model Database</a>.</p>
+<p>Not all models from the database are supported. All 2x models are most likely not supported.</p>
+<h1 id="img2img-alternative-test">img2img alternative test</h1>
+<p>Deconstructs an input image using a reverse of the Euler diffuser to create the noise pattern used to construct the input prompt.</p>
+<p>As an example, you can use this image. Select the img2img alternative test from the <em>scripts</em> section.</p>
+<p><img alt="alt_src" src="https://user-images.githubusercontent.com/1633844/191771623-6293ec7b-c1c0-425c-9fe9-9d03313761fb.png" /></p>
+<p>Adjust your settings for the reconstruction process:
+- Use a brief description of the scene: "A smiling woman with brown hair." Describing features you want to change helps. Set this as your starting prompt, and 'Original Input Prompt' in the script settings.
+- You <em>MUST</em> use the Euler sampling method, as this script is built on it.
+- Sampling steps: 50-60. This MUCH match the decode steps value in the script, or you'll have a bad time. Use 50 for this demo.
+- CFG scale: 2 or lower. For this demo, use 1.8. (Hint, you can edit ui-config.json to change "img2img/CFG Scale/step" to .1 instead of .5.
+- Denoising strength - this <em>does</em> matter, contrary to what the old docs said. Set it to 1.
+- Width/Height - Use the width/height of the input image.
+- Seed...you can ignore this. The reverse Euler is generating the noise for the image now.
+- Decode cfg scale - Somewhere lower than 1 is the sweet spot. For the demo, use 1.
+- Decode steps - as mentioned above, this should match your sampling steps. 50 for the demo, consider increasing to 60 for more detailed images.</p>
+<p>Once all of the above are dialed in, you should be able to hit "Generate" and get back a result that is a <em>very</em> close approximation to the original.</p>
+<p>After validating that the script is re-generating the source photo with a good degree of accuracy, you can try to change the details of the prompt. Larger variations of the original will likely result in an image with an entirely different composition than the source.</p>
+<p>Example outputs using the above settings and prompts below (Red hair/pony not pictured)</p>
+<p><img alt="demo" src="https://user-images.githubusercontent.com/1633844/191776138-c77bf232-1981-47c9-a4d3-ae155631f5c8.png" /></p>
+<p>"A smiling woman with blue hair." Works.
+"A frowning woman with brown hair." Works.
+"A frowning woman with red hair." Works.
+"A frowning woman with red hair riding a horse." Seems to replace the woman entirely, and now we have a ginger pony.</p>
+<h1 id="usercss">user.css</h1>
+<p>Create a file named <code>user.css</code> near <code>webui.py</code> and put custom CSS code into it. For example, this makes the gallery taller:</p>
+<pre><code class="language-css">#txt2img_gallery, #img2img_gallery{
+    min-height: 768px;
+}
+</code></pre>
+<p>A useful tip is you can append <code>/?__theme=dark</code> to your webui url to enable a built in <em>dark theme</em>
+<br>e.g. (<code>http://127.0.0.1:7860/?__theme=dark</code>)</p>
+<p>Alternatively, you can add the <code>--theme=dark</code> to the <code>set COMMANDLINE_ARGS=</code> in <code>webui-user.bat</code><br>
+e.g. <code>set COMMANDLINE_ARGS=--theme=dark</code></p>
+<p><img alt="chrome_O1kvfKs1es" src="https://user-images.githubusercontent.com/39339941/197560013-51e535d6-7cef-4946-ab6b-747e1c76b007.png" /></p>
+<h1 id="notificationmp3">notification.mp3</h1>
+<p>If an audio file named <code>notification.mp3</code> is present in webui's root folder, it will be played when the generation process completes.</p>
+<p>As a source of inspiration:
+* https://pixabay.com/sound-effects/search/ding/?duration=0-30
+* https://pixabay.com/sound-effects/search/notification/?duration=0-30</p>
+<h1 id="tweaks">Tweaks</h1>
+<h2 id="clip-skip">Clip Skip</h2>
+<p>This is a slider in settings, and it controls how early the processing of prompt by CLIP network should be stopped.</p>
+<p>A more detailed explanation:</p>
+<p>CLIP is a very advanced neural network that transforms your prompt text into a numerical representation. Neural networks work very well with this numerical representation and that's why devs of SD chose CLIP as one of 3 models involved in stable diffusion's method of producing images. As CLIP is a neural network, it means that it has a lot of layers. Your prompt is digitized in a simple way, and then fed through layers. You get numerical representation of the prompt after the 1st layer, you feed that into the second layer, you feed the result of that into third, etc, until you get to the last layer, and that's the output of CLIP that is used in stable diffusion. This is the slider value of 1. But you can stop early, and use the output of the next to last layer - that's slider value of 2. The earlier you stop, the less layers of neural network have worked on the prompt.</p>
+<p>Some models were trained with this kind of tweak, so setting this value helps produce better results on those models.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.51d95adb.min.js"></script>
+      
+    
+  </body>
+</html>
