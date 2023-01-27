@@ -11,6 +11,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: Check out wiki repo
+        uses: actions/checkout@v3
+        with:
+          repository: "${{ github.repository }}.wiki"
+          path: .wiki
       - uses: actions/setup-python@v4
         with:
           python-version: 3.x
