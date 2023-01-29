@@ -1,0 +1,774 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Tests/">
+      
+      
+        <link rel="next" href="../Troubleshooting/">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.0.8">
+    
+    
+      
+        <title>What is Textual Inversion? - SDWebUI Wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.0d440cfe.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.2505c338.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#what-is-textual-inversion" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="SDWebUI Wiki" class="md-header__button md-logo" aria-label="SDWebUI Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SDWebUI Wiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              What is Textual Inversion?
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="SDWebUI Wiki" class="md-nav__button md-logo" aria-label="SDWebUI Wiki" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    SDWebUI Wiki
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../API/" class="md-nav__link">
+        API
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Change-UI-Defaults/" class="md-nav__link">
+        Change UI Defaults
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Command-Line-Arguments-and-Settings/" class="md-nav__link">
+        Command Line Arguments and Settings
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Contributing/" class="md-nav__link">
+        Pull requests
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Custom-Images-Filename-Name-and-Subdirectory/" class="md-nav__link">
+        Custom Images Filename Name and Subdirectory
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Custom-Scripts/" class="md-nav__link">
+        Installing and Using Custom Scripts
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Dependencies/" class="md-nav__link">
+        Required Dependencies
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Developing-custom-scripts/" class="md-nav__link">
+        Developing custom scripts
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Developing-extensions/" class="md-nav__link">
+        Developing extensions
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Extensions-index/" class="md-nav__link">
+        Extensions index
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Extensions/" class="md-nav__link">
+        General info
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Features/" class="md-nav__link">
+        Features
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Home/" class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Install-and-Run-on-AMD-GPUs/" class="md-nav__link">
+        Install and Run on AMD GPUs
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Install-and-Run-on-NVidia-GPUs/" class="md-nav__link">
+        Install and Run on NVidia GPUs
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Installation-on-Apple-Silicon/" class="md-nav__link">
+        Installation on Apple Silicon
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../List-of-Time-Zones/" class="md-nav__link">
+        List of Time Zones
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Localization/" class="md-nav__link">
+        Using localization files
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Negative-prompt/" class="md-nav__link">
+        Negative prompt
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Online-Services/" class="md-nav__link">
+        Online Services
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Optimizations/" class="md-nav__link">
+        Optimizations
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Seed-breaking-changes/" class="md-nav__link">
+        2023-01-23 - Alternating words syntax bugfix
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tests/" class="md-nav__link">
+        Tests
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        What is Textual Inversion?
+      </a>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Troubleshooting/" class="md-nav__link">
+        Troubleshooting
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Xformers/" class="md-nav__link">
+        Xformers
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../_Footer/" class="md-nav__link">
+         Footer
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="what-is-textual-inversion">What is Textual Inversion?</h1>
+<p>Textual Inversion allows you to train a tiny part of the neural network on your own pictures, and use results when generating new ones. In this context, embedding is the name of the tiny bit of the neural network you trained.</p>
+<p>The result of the training is a .pt or a .bin file (former is the format used by original author, latter is by the diffusers library) with the embedding in it.</p>
+<p>See original site for more details about what textual inversion is: https://textual-inversion.github.io/.</p>
+<h1 id="using-pre-trained-embeddings">Using pre-trained embeddings</h1>
+<p>Put the embedding into the <code>embeddings</code> directory and use its filename in the prompt. You don't have to restart the program for this to work.</p>
+<p>As an example, here is an embedding of <a href="https://drive.google.com/file/d/1MDSmzSbzkIcw5_aw_i79xfO3CRWQDl-8/view?usp=sharing">Usada Pekora</a> I trained on WD1.2 model, on 53 pictures (119 augmented) for 19500 steps, with 8 vectors per token setting.</p>
+<p>Pictures it generates:
+<img alt="grid-0037" src="https://user-images.githubusercontent.com/20920490/193285043-5d5d57d8-7b5e-4803-a211-5ca5220c35f4.png" /></p>
+<pre><code>portrait of usada pekora
+Steps: 20, Sampler: Euler a, CFG scale: 7, Seed: 4077357776, Size: 512x512, Model hash: 45dee52b
+</code></pre>
+<p>You can combine multiple embeddings in one prompt:
+<img alt="grid-0038" src="https://user-images.githubusercontent.com/20920490/193285265-a5224378-4ae2-48bf-ad7d-e79a9f998f9c.png" /></p>
+<pre><code>portrait of usada pekora, mignon
+Steps: 20, Sampler: Euler a, CFG scale: 7, Seed: 4077357776, Size: 512x512, Model hash: 45dee52b
+</code></pre>
+<p>Be very careful about which model you are using with your embeddings: they work well with the model you used during training, and not so well on different models. For example, here is the above embedding and vanilla 1.4 stable diffusion model:
+<img alt="grid-0036" src="https://user-images.githubusercontent.com/20920490/193285611-486373f2-35d0-437c-895a-71454564a7c4.png" /></p>
+<pre><code>portrait of usada pekora
+Steps: 20, Sampler: Euler a, CFG scale: 7, Seed: 4077357776, Size: 512x512, Model hash: 7460a6fa
+</code></pre>
+<h1 id="training-embeddings">Training embeddings</h1>
+<h2 id="textual-inversion-tab">Textual inversion tab</h2>
+<p>Experimental support for training embeddings in user interface.
+- create a new empty embedding, select directory with images, train the embedding on it
+- the feature is very raw, use at own risk
+- i was able to reproduce results I got with other repos in training anime artists as styles, after few tens of thousands steps
+- works with half precision floats, but needs experimentation to see if results will be just as good
+- if you have enough memory, safer to run with <code>--no-half --precision full</code>
+- Section for UI to run preprocessing for images automatically.
+- you can interrupt and resume training without any loss of data (except for AdamW optimization parameters, but it seems none of existing repos save those anyway so the general opinion is they are not important)
+- no support for batch sizes or gradient accumulation
+- it should not be possible to run this with <code>--lowvram</code> and <code>--medvram</code> flags.</p>
+<h2 id="explanation-for-parameters">Explanation for parameters</h2>
+<h3 id="creating-an-embedding">Creating an embedding</h3>
+<ul>
+<li><strong>Name</strong>: filename for the created embedding. You will also use this text in prompts when referring to the embedding.</li>
+<li><strong>Initialization text</strong>: the embedding you create will initially be filled with vectors of this text. If you create a one vector embedding named "zzzz1234" with "tree" as initialization text, and use it in prompt without training, then prompt "a zzzz1234 by monet" will produce same pictures as "a tree by monet".</li>
+<li><strong>Number of vectors per token</strong>: the size of embedding. The larger this value, the more information about subject you can fit into the embedding, but also the more words it will take away from your prompt allowance. With stable diffusion, you have a limit of 75 tokens in the prompt. If you use an embedding with 16 vectors in a prompt, that will leave you with space for 75 - 16 = 59. Also from my experience, the larger the number of vectors, the more pictures you need to obtain good results.</li>
+</ul>
+<h3 id="preprocess">Preprocess</h3>
+<p>This takes images from a directory, processes them to be ready for textual inversion, and writes results to another directory. This is a convenience feature and you can preprocess pictures yourself if you wish.
+- <strong>Source directory</strong>: directory with images
+- <strong>Destination directory</strong>: directory where the results will be written
+- <strong>Create flipped copies</strong>: for each image, also write its mirrored copy
+- <strong>Split oversized images into two</strong>: if the image is too tall or wide, resize it to have the short side match the desired resolution, and create two, possibly intersecting pictures out of it.
+- <strong>Use BLIP caption as filename</strong>: use BLIP model from the interrogator to add a caption to the filename.</p>
+<h3 id="training-an-embedding">Training an embedding</h3>
+<ul>
+<li><strong>Embedding</strong>: select the embedding you want to train from this dropdown.</li>
+<li><strong>Learning rate</strong>: how fast should the training go. The danger of setting this parameter to a high value is that you may break the embedding if you set it too high. If you see <code>Loss: nan</code> in the training info textbox, that means you failed and the embedding is dead. With the default value, this should not happen. It's possible to specify multiple learning rates in this setting using the following syntax: <code>0.005:100, 1e-3:1000, 1e-5</code> - this will train with lr of <code>0.005</code> for first 100 steps, then <code>1e-3</code> until 1000 steps, then <code>1e-5</code> until the end.</li>
+<li><strong>Dataset directory</strong>: directory with images for training. They all must be square.</li>
+<li><strong>Log directory</strong>: sample images and copies of partially trained embeddings will be written to this directory.</li>
+<li><strong>Prompt template file</strong>: text file with prompts, one per line, for training the model on. See files in directory <code>textual_inversion_templates</code> for what you can do with those. Use <code>style.txt</code> when training styles, and <code>subject.txt</code> when training object embeddings. Following tags can be used in the file:</li>
+<li><code>[name]</code>: the name of embedding</li>
+<li><code>[filewords]</code>: words from the file name of the image from the dataset. See below for more info.</li>
+<li><strong>Max steps</strong>: training will stop after this many steps have been completed. A step is when one picture (or one batch of pictures, but batches are currently not supported) is shown to the model and is used to improve embedding. if you interrupt training and resume it at a later date, the number of steps is preserved.</li>
+<li><strong>Save images with embedding in PNG chunks</strong>: every time an image is generated it is combined with the most recently logged embedding and saved to image_embeddings in a format that can be both shared as an image, and placed into your embeddings folder and loaded.</li>
+<li><strong>Preview prompt</strong>: if not empty, this prompt will be used to generate preview pictures. If empty, the prompt from training will be used.</li>
+</ul>
+<h3 id="filewords">filewords</h3>
+<p><code>[filewords]</code> is a tag for prompt template file that allows you to insert text from filename into the prompt. By default, file's extension is removed, as well as all numbers and dashes (<code>-</code>) at the start of filename. So this filename: <code>000001-1-a man in suit.png</code> will become this text for prompt: <code>a man in suit</code>. Formatting of the text in the filename is left as it is.</p>
+<p>It's possible to use options <code>Filename word regex</code> and <code>Filename join string</code> to alter the text from filename: for example, with word regex = <code>\w+</code> and join string = <code>,</code>, the file from above will produce this text: <code>a, man, in, suit</code>. regex is used to extract words from text (and they are <code>['a', 'man', 'in', 'suit', ]</code>), and join string (', ') is placed between those words to create one text: <code>a, man, in, suit</code>.</p>
+<p>It's also possible to make a text file with same filename as image (<code>000001-1-a man in suit.txt</code>) and just put the prompt text there. The filename and regex options will not be used.</p>
+<h2 id="third-party-repos">Third party repos</h2>
+<p>I successfully trained embeddings using those repositories:</p>
+<ul>
+<li><a href="https://github.com/nicolai256/Stable-textual-inversion_win">nicolai256</a></li>
+<li><a href="https://github.com/invoke-ai/InvokeAI">lstein</a></li>
+</ul>
+<p>Other options are to train on colabs and/or using diffusers library, which I know nothing about.</p>
+<h1 id="finding-embeddings-online">Finding embeddings online</h1>
+<ul>
+<li>Github has kindly asked me to remove all the links here.</li>
+</ul>
+<h1 id="hypernetworks">Hypernetworks</h1>
+<p>Hypernetworks is a novel (get it?) concept for fine tuning a model without touching any of its weights.</p>
+<p>The current way to train hypernets is in the textual inversion tab.</p>
+<p>Training works the same way as with textual inversion.</p>
+<p>The only requirement is to use a very, very low learning rate, something like 0.000005 or 0.0000005.</p>
+<h3 id="dum-dum-guide">Dum Dum Guide</h3>
+<p>An anonymous user has written a guide with pictures for using hypernetworks: https://rentry.org/hypernetwork4dumdums</p>
+<h3 id="unload-vae-and-clip-from-vram-when-training">Unload VAE and CLIP from VRAM when training</h3>
+<p>This option on settings tab allows you to save some memoryat the cost of slower preview picture generation.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.db81ec45.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.a00a7c5e.min.js"></script>
+      
+    
+  </body>
+</html>
